@@ -130,5 +130,15 @@ namespace Lab3
         {
             showForm(new FormGroup());
         }
+
+        /// <summary>
+        /// Загрузка формы со списком воспитателей
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void списокВоспитателейToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showForm(new FormEducators());
+        }
     }
 }
