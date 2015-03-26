@@ -55,6 +55,12 @@
     <Compile Include="Forms\Add\FormAddEducator.Designer.cs">
       <DependentUpon>FormAddEducator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ConnectMsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConnectMsgBox.Designer.cs">
+      <DependentUpon>ConnectMsgBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\FormtSettEat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Add\FormAddEducator.resx">
       <DependentUpon>FormAddEducator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConnectMsgBox.resx">
+      <DependentUpon>ConnectMsgBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\FormSettDB.resx">
       <DependentUpon>FormSettDB.cs</DependentUpon>

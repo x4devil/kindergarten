@@ -65,6 +65,7 @@
             this.dgGroupList.RowTemplate.Height = 23;
             this.dgGroupList.Size = new System.Drawing.Size(595, 475);
             this.dgGroupList.TabIndex = 0;
+            this.dgGroupList.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgGroupList_UserDeletingRow);
             // 
             // Column1
             // 
@@ -99,6 +100,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "FormGroup";
             this.Text = "Список групп";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGroup_FormClosing);
             this.Load += new System.EventHandler(this.FormGroup_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgGroupList)).EndInit();

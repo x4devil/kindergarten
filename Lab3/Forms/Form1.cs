@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lab3.Forms;
+using System.Threading;
 
 namespace Lab3
 {
@@ -28,7 +29,15 @@ namespace Lab3
         {
             while (form.DialogResult != DialogResult.OK && form.DialogResult != DialogResult.Cancel)
             {
-                form.ShowDialog();
+                try
+                {
+                    form.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
             return form.DialogResult;
         }
@@ -50,12 +59,34 @@ namespace Lab3
         {
             initConfiguration();
             GlobalVars.connection = new MySQLConnector(GlobalVars.server, GlobalVars.user, GlobalVars.password);
+
+            Form box = new ConnectMsgBox();
+
+            Thread th = new Thread(() =>
+            {
+                box.ShowDialog();
+            });
+            th.Start();
             if (!GlobalVars.connection.openConnect())
             {
+                th.Abort();
                 //Если не удалось подключиться, то открываем форму настройки БД
                 DialogResult result = showForm(new FormSettDB());
 
                 if (result == DialogResult.Cancel)
+                {
+                    this.Close();
+                }
+            }
+            th.Abort();
+
+            //Проверяем есть ли группы
+            if (!GlobalVars.connection.isHasGroup())
+            {
+                GlobalVars.showWarningMsgBox("Необходимо создать хотя бы одну группу");
+                DialogResult result = showForm(new FormGroup());
+
+                if (result == DialogResult.Cancel && !GlobalVars.connection.isHasGroup())
                 {
                     this.Close();
                 }
@@ -79,7 +110,15 @@ namespace Lab3
         /// <param name="e"></param>
         private void подключениеКБДToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showForm(new FormSettDB());
+            DialogResult result = showForm(new FormSettDB());
+
+            if (result == DialogResult.Cancel)
+            {
+                if (!GlobalVars.connection.connectionIsOpen())
+                {
+                    this.Close();
+                }
+            }
         }
 
         /// <summary>
