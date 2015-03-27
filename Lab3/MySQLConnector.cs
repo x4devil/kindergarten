@@ -207,6 +207,52 @@ namespace Lab3
                 return false;
             }
         }
+
+        /// <summary>
+        /// Получает список пар groupname/groupid 
+        /// </summary>
+        /// <returns>Список пар или null если нет подключения</returns>
+        public DataTable getGroupLoV() //LoV - list of values
+        {
+            String sql = "select group_name as \"Название\"," +
+                " group_id \"Номер\" " +
+                " from grouptable";
+            return select(sql);
+        }
+
+        /// <summary>
+        /// Получает список воспитателей 
+        /// </summary>
+        /// <returns>Список воспитателей или null если нет подключения</returns>
+        public DataTable getEducatorList()
+        {
+            String sql = "select educator_surname as \"Фамилия\"," +
+                " educator_name \"Имя\"," +
+                " educator_patronomic \"Отчество\"," +
+                " educator_phone \"Телефон\"," +
+                " educator_location \"Место проживания\"," +
+                " educator_id \"Номер\" " +
+                " from educator";
+            return select(sql);
+        }
+
+        /// <summary>
+        /// Получает воспитателя с заданым id
+        /// </summary>
+        /// <returns>Строка с воспитателем или null</returns>
+        public DataTable getEducatorById(int id)
+        {
+            String sql = String.Format("select educator_surname as \"Фамилия\"," +
+                " educator_name \"Имя\"," +
+                " educator_patronomic \"Отчество\"," +
+                " educator_phone \"Телефон\"," +
+                " educator_location \"Место проживания\"," +
+                " group_id \"Номер группы\" " +
+                " from educator" +
+                " where educator_id = {0}",
+                id);
+            return select(sql);
+        }
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -228,6 +274,25 @@ namespace Lab3
             String scoast = coast.ToString().Replace(",", ".");
             String sql = String.Format("insert into grouptable (group_name, max_age, min_age, group_size, group_coast) values('{0}', '{1}', '{2}', {3}, '{4}')",
             name, maxAge, minAge, size, scoast);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Вставка нового воспитателя
+        /// </summary>
+        /// <param name="first_name">Имя</param>
+        /// <param name="second_name">Фамилия</param>
+        /// <param name="third_name">Отчество</param>
+        /// <param name="phone">Номер телефона</param>
+        /// <param name="location">Место жительства</param>
+        /// <param name="group">Номер группы</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertEducator(String first_name, String second_name, String third_name, String phone, String location, int group)
+        {
+            String sql = String.Format("insert into educator" + 
+                " (educator_surname, educator_name, educator_patronomic, educator_phone, educator_location, group_id)" + 
+                " values('{0}', '{1}', '{2}', '{3}', '{4}','{5}')",
+            second_name, first_name, third_name, phone, location, group);
             return execute(sql);
         }
 
@@ -253,6 +318,25 @@ namespace Lab3
                 name, minAge, maxAge, size, scoast, id);
             return execute(sql);
         }
+
+        /// <summary>
+        /// Обновление воспитателя с заданным id 
+        /// </summary>
+        /// <param name="first_name">Имя</param>
+        /// <param name="second_name">Фамилия</param>
+        /// <param name="third_name">Отчество</param>
+        /// <param name="phone">Номер телефона</param>
+        /// <param name="location">Место жительства</param>
+        /// <param name="group">Номер группы</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateEducator(String first_name, String second_name, String third_name, String phone, String location, int group, int educator_id)
+        {
+            String sql = String.Format("update educator" + 
+                " set educator_surname = '{0}', educator_name = '{1}', educator_patronomic = '{2}', educator_phone = '{3}', educator_location = '{4}', group_id = '{5}' " + 
+                " where educator_id = {6}",
+            second_name, first_name, third_name, phone, location, group, educator_id);
+            return execute(sql);
+        }
         /*****************************************************************************************
          ************************* Методы связанные с удалением данных***************************** 
          *****************************************************************************************
@@ -265,6 +349,17 @@ namespace Lab3
         public bool deleteGroup(int id)
         {
             String sql = String.Format("delete from grouptable where group_id = '{0}'", id);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Удаление воспитателя по заданному id
+        /// </summary>
+        /// <param name="id">id воспитателя, которого необходимо удалить </param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool deleteEducator(int id)
+        {
+            String sql = String.Format("delete from educator where educator_id = '{0}'", id);
             return execute(sql);
         }
     }
