@@ -32,6 +32,11 @@ namespace Lab3
         public static String password = null;
 
         /// <summary>
+        /// Активная группа 
+        /// </summary>
+        public static int activeGroupId = -1;
+
+        /// <summary>
         /// Выводит предупреждающее диалоговое окно
         /// </summary>
         /// <param name="msg">Текст сообщения</param>

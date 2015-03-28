@@ -91,8 +91,45 @@ namespace Lab3
                     this.Close();
                 }
             }
+
+            //Загружаем названия групп
+            initComboBoxGroupNames();
+            //Загружаем список детей
+            initChildList(GlobalVars.activeGroupId);
         }
 
+        /// <summary>
+        /// Загружаем названия групп в cbGroupNames
+        /// </summary>
+        private void initComboBoxGroupNames()
+        {
+
+            List<String> names = GlobalVars.connection.getGroupNamesList();
+            int countNames = names.Count;
+            for (int i = 0; i < countNames; i++)
+            {
+                this.cbGroupNames.Items.Add(names[i]);
+            }
+            this.cbGroupNames.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Загружает список детей для определенной группы
+        /// </summary>
+        /// <param name="groupId">Ид группы</param>
+        private void initChildList(int groupId)
+        {
+            if (this.dgChildList.Columns.Count > 0)
+            {
+                this.dgChildList.Columns.Clear();
+            }
+
+            if (this.dgChildList.Rows.Count > 0)
+            {
+                this.dgChildList.Rows.Clear();
+            }
+            this.dgChildList.DataSource = GlobalVars.connection.getChildList(groupId);
+        }
         /// <summary>
         /// Загрузка формы
         /// </summary>
@@ -139,6 +176,22 @@ namespace Lab3
         private void списокВоспитателейToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showForm(new FormEducators());
+        }
+
+        /// <summary>
+        /// Обработка изменения выбранного элемента в cbGroupNames
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbGroupNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectIndex = this.cbGroupNames.SelectedIndex;
+            if (selectIndex >= 0)
+            {
+                String name = this.cbGroupNames.Items[selectIndex].ToString();
+                GlobalVars.activeGroupId = GlobalVars.connection.getGroupIdByName(name);
+                initChildList(GlobalVars.activeGroupId);
+            }
         }
     }
 }

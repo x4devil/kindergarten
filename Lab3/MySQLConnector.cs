@@ -190,6 +190,24 @@ namespace Lab3
         }
 
         /// <summary>
+        /// Получает список детей для определенной группы
+        /// </summary>
+        /// <param name="groupId">Ид группы</param>
+        /// <returns>Список детей</returns>
+        public DataTable getChildList(int groupId)
+        {
+            String sql = "select baby_id as \"ИД\", " +
+                "baby_surname as \"Фамилия\", " +
+                "baby_name as \"Имя\", " +
+                "baby_patronomic as \"Отчество\", " +
+                "baby_birthday as \"Дата_рождения\" " +
+                "from baby";
+            sql = String.Format(sql + " where group_id = {0}", groupId);
+
+            return select(sql);
+        }
+
+        /// <summary>
         /// Проверяет наличие групп
         /// </summary>
         /// <returns>true если есть группы, иначе false</returns>
@@ -206,6 +224,48 @@ namespace Lab3
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Получает список названий групп 
+        /// </summary>
+        /// <returns>Список названий групп</returns>
+        public List<String> getGroupNamesList()
+        {
+            String sql = "select group_name from grouptable";
+            DataTable table = select(sql);
+
+            List<String> result = new List<String>();
+            if (table == null)
+            {
+                return result;
+            }
+
+            int rowsCount = table.Rows.Count;
+            for (int i = 0; i < rowsCount; i++)
+            {
+                result.Add(table.Rows[i][0].ToString());
+                Console.WriteLine(table.Rows[i][0].ToString());
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Получает ид группы по ее названию
+        /// </summary>
+        /// <param name="name">Название группы</param>
+        /// <returns>Возвращает ид группы или -1 если такое название не найдено</returns>
+        public int getGroupIdByName(String name)
+        {
+            String sql = String.Format("select group_id from grouptable where group_name like '{0}'", name);
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+
+            return -1;
         }
 
         /// <summary>

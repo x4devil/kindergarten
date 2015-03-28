@@ -49,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Фамилия";
             // 
@@ -58,7 +58,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Имя";
             // 
@@ -67,7 +67,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Отчество";
             // 
@@ -76,7 +76,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Телефон";
             // 
@@ -85,7 +85,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 146);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 13);
+            this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Место проживания";
             // 
@@ -93,28 +93,28 @@
             // 
             this.tbSecondname.Location = new System.Drawing.Point(116, 6);
             this.tbSecondname.Name = "tbSecondname";
-            this.tbSecondname.Size = new System.Drawing.Size(156, 20);
+            this.tbSecondname.Size = new System.Drawing.Size(156, 21);
             this.tbSecondname.TabIndex = 1;
             // 
             // tbFirstname
             // 
             this.tbFirstname.Location = new System.Drawing.Point(116, 33);
             this.tbFirstname.Name = "tbFirstname";
-            this.tbFirstname.Size = new System.Drawing.Size(156, 20);
+            this.tbFirstname.Size = new System.Drawing.Size(156, 21);
             this.tbFirstname.TabIndex = 2;
             // 
             // tbThirdname
             // 
             this.tbThirdname.Location = new System.Drawing.Point(116, 60);
             this.tbThirdname.Name = "tbThirdname";
-            this.tbThirdname.Size = new System.Drawing.Size(156, 20);
+            this.tbThirdname.Size = new System.Drawing.Size(156, 21);
             this.tbThirdname.TabIndex = 3;
             // 
             // tbPhone
             // 
             this.tbPhone.Location = new System.Drawing.Point(116, 87);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(156, 20);
+            this.tbPhone.Size = new System.Drawing.Size(156, 21);
             this.tbPhone.TabIndex = 4;
             // 
             // tbLocation
@@ -150,12 +150,13 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 116);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Группа";
             // 
             // cbGroup
             // 
+            this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroup.FormattingEnabled = true;
             this.cbGroup.Location = new System.Drawing.Point(116, 116);
             this.cbGroup.Name = "cbGroup";
