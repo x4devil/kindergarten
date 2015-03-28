@@ -313,6 +313,74 @@ namespace Lab3
                 id);
             return select(sql);
         }
+
+        /// <summary>
+        /// Получает список посещений на заданную дату
+        /// </summary>
+        /// <param name="date">Дата</param>
+        /// <returns>Список посещений или null</returns>
+        public DataTable getVisitingListByDate(DateTime date)
+        {
+            String d = date.ToString("yyyy-MM-dd");
+            String sql = String.Format("select " +
+                " v.visiting_id as \"Номер\"," +
+                " v.baby_id as \"Номер ребенка\", " +
+                " (select concat_ws(\" \", b.baby_surname, b.baby_name, b.baby_patronomic)" +
+                "   from baby b" +
+                "   where b.baby_id = v.baby_id " +
+                " ) as \"ФИО ребенка\"," +
+                " v.visiting_timebegin as \"Привели\"," +
+                " v.visiting_timeend as \"Забрали\"," +
+                " v.educator_id as \"Воспитатель\"," +
+                " v.trustee_id as \"Доверенное лицо\" " +
+                " from visiting v" +
+                " where visiting_date = '{0}'",
+                d);
+            return select(sql);
+        }
+        /// <summary>
+        /// Получает список детей форматированый под табоицу посещения
+        /// </summary>
+        /// <returns>Список посещений или null</returns>
+        public DataTable getVisitingBabyList()
+        {
+            String sql = String.Format("select " +
+                " null as \"Номер\"," +
+                " baby_id as \"Номер ребенка\", " +
+                " concat_ws(\" \", baby_surname, baby_name, baby_patronomic) as \"ФИО ребенка\"," +
+                " null as \"Привели\"," +
+                " null as \"Забрали\"," +
+                " null as \"Воспитатель\"," +
+                " null as \"Доверенное лицо\" " +
+                " from baby ");
+            return select(sql);
+        }
+        /// <summary>
+        /// Получает список пар имя воспитателя/номер воспитателя
+        /// </summary>
+        /// <returns>Список пар или null если нет подключения</returns>
+        public DataTable getEducatorLoV()
+        {
+            String sql = "select concat_ws(\" \", educator_surname, educator_name) as \"ФИО\"," +
+                " educator_id \"Номер\" " +
+                " from educator";
+            return select(sql);
+        }
+        /// <summary>
+        /// Получает список пар доверенное лицо/номер лица для ребенка с заданым id
+        /// </summary>
+        /// <param name="id">Номер ребенка</param>
+        /// <returns>Список пар или null если нет подключения</returns>
+        public DataTable getTrusteeLoV(int id) //LoV - list of values
+        {
+            String sql = String.Format("select concat_ws(\" \",trustee_surname,trustee_name) as \"ФИО\"," +
+                " trustee_id \"Номер\" " +
+                " from trustee" +
+                " where baby_id = '{0}'",
+                id);
+            return select(sql);
+        }
+
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -355,6 +423,26 @@ namespace Lab3
             second_name, first_name, third_name, phone, location, group);
             return execute(sql);
         }
+        /// <summary>
+        /// Вставка нового посещения
+        /// </summary>
+        /// <param name="baby_id">Id ребенка</param>
+        /// <param name="date">Дата</param>
+        /// <param name="begin">Время привода</param>
+        /// <param name="end">Время ухода</param>
+        /// <param name="educator_id">Id воспитателя</param>
+        /// <param name="trustee_id">Id доверенного лица</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertVisiting(int baby_id, String date, String begin, String end, String educator_id, String trustee_id)
+        {
+            String sql = String.Format("insert into visiting" +
+                " (visiting_date, visiting_timebegin, visiting_timeend, educator_id, baby_id, trustee_id) " +
+                " values('{0}', STR_TO_DATE('{1}','%d.%m.%Y %H:%i:%s'), " +
+                " STR_TO_DATE({2},'%d.%m.%Y %H:%i:%s'), " +
+                " {3},{4},{5})",
+                date, begin, end, educator_id, baby_id, trustee_id);
+            return execute(sql);
+        }
 
         /*****************************************************************************************
          ************************* Методы связанные с обновлением данных***************************** 
@@ -395,6 +483,27 @@ namespace Lab3
                 " set educator_surname = '{0}', educator_name = '{1}', educator_patronomic = '{2}', educator_phone = '{3}', educator_location = '{4}', group_id = '{5}' " + 
                 " where educator_id = {6}",
             second_name, first_name, third_name, phone, location, group, educator_id);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Обновление посещения
+        /// </summary>
+        /// <param name="v_id">Id строки посещения</param>
+        /// <param name="begin">Время привода</param>
+        /// <param name="end">Время ухода</param>
+        /// <param name="educator_id">Id воспитателя</param>
+        /// <param name="trustee_id">Id доверенного лица</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateVisiting(int v_id, String begin, String end, String educator_id, String trustee_id)
+        {
+            String sql = String.Format("update visiting" +
+                " set visiting_timebegin = STR_TO_DATE('{0}','%d.%m.%Y %H:%i:%s'), " +
+                " visiting_timeend = STR_TO_DATE({1},'%d.%m.%Y %H:%i:%s'), " +
+                " educator_id = {2}," +
+                " trustee_id = {3}" +
+                " where visiting_id = {4}",
+                begin, end, educator_id, trustee_id, v_id);
             return execute(sql);
         }
         /*****************************************************************************************

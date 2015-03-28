@@ -91,3 +91,25 @@ D:\Семестр 8\Командная разработка\Project\kindergarten
 D:\Семестр 8\Командная разработка\Project\kindergarten\kindergarten\Lab3\obj\Debug\Lab3.FormGroup.resources
 D:\Семестр 8\Командная разработка\Project\kindergarten\kindergarten\Lab3\obj\Debug\Lab3.Properties.Resources.resources
 D:\Семестр 8\Командная разработка\Project\kindergarten\kindergarten\Lab3\obj\Debug\Lab3.csproj.GenerateResource.Cache
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\bin\Debug\Lab3.exe.config
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.exe
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.pdb
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.csprojResolveAssemblyReference.cache
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.List.FormAddBaby.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.Add.FormAddEducator.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.Forms.ConnectMsgBox.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.Forms.FormSettDB.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.Add.FormSettEat.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.Form1.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormCheckOut.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormCoast.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormEat.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormEatCoas.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormPay.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormVisiting.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormEducators.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.FormGroup.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.Properties.Resources.resources
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.csproj.GenerateResource.Cache
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\bin\Debug\Lab3.exe
+C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\bin\Debug\Lab3.pdb

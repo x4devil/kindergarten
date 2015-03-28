@@ -193,5 +193,15 @@ namespace Lab3
                 initChildList(GlobalVars.activeGroupId);
             }
         }
+
+        /// <summary>
+        /// Загрузка формы учета посещаемости
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void учетПосещаемостиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showForm(new FormVisiting());
+        }
     }
 }
