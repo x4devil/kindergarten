@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -115,9 +116,16 @@ namespace Lab3.Forms
             if (validateData())
             {
                 GlobalVars.connection = new MySQLConnector(this.tbServer.Text, this.tbUser.Text, this.tbPassword.Text);
+                Form box = new ConnectMsgBox();
+                Thread th = new Thread(() =>
+                {
+                    box.ShowDialog();
+                });
+                th.Start();
 
                 if (GlobalVars.connection.openConnect())
                 {
+                    th.Abort();
                     MessageBox.Show(this, "Подключение к БД прошло успешно","Подключение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Записываем новые данные в конфиг
                     XmlDocument xmlDoc = new XmlDocument();
@@ -153,6 +161,10 @@ namespace Lab3.Forms
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+                else
+                {
+                    th.Abort();
+                }
             }
         }
 
@@ -186,7 +198,18 @@ namespace Lab3.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            if (!GlobalVars.connection.connectionIsOpen())
+            {
+                DialogResult result = GlobalVars.showQuestionMsgBox("Если вы закроете это окно, то будет закрыто все приложение, так как отсутствует подключение к БД");
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

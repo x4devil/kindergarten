@@ -98,6 +98,7 @@ namespace Lab3
         {
 
             List<String> names = GlobalVars.connection.getGroupNamesList();
+            this.cbGroupNames.Items.Clear();
             int countNames = names.Count;
             for (int i = 0; i < countNames; i++)
             {
@@ -123,6 +124,7 @@ namespace Lab3
             }
             this.dgChildList.DataSource = GlobalVars.connection.getChildList(groupId);
         }
+        
         /// <summary>
         /// Загрузка формы
         /// </summary>
@@ -159,6 +161,7 @@ namespace Lab3
         private void списокГруппToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showForm(new FormGroup());
+            initComboBoxGroupNames();
         }
 
         /// <summary>
@@ -195,6 +198,51 @@ namespace Lab3
         private void учетПосещаемостиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showForm(new FormVisiting());
+        }
+
+        /// <summary>
+        /// Перевод ребенка в другую группу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMove_Click(object sender, EventArgs e)
+        {
+            if (GlobalVars.connection.getGroupCount() > 1)
+            {
+                if (this.dgChildList.CurrentRow != null)
+                {
+                    int rowIndex = this.dgChildList.CurrentRow.Index;
+                    GlobalVars.activeBabyId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
+                    if (showForm(new MoveForm()) == DialogResult.OK)
+                    {
+                        initChildList(GlobalVars.activeGroupId);
+                    }
+                }
+            }
+            else
+            {
+                GlobalVars.showWarningMsgBox("У вас только одна группа");
+            }
+            
+        }
+
+        /// <summary>
+        /// Удаление информации о ребенке
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (this.dgChildList.CurrentRow != null)
+            {
+                if (GlobalVars.showQuestionMsgBox("Вы уверены, что хотите удалить всю информацию о ребенкке?") == DialogResult.Yes)
+                {
+                    int rowIndex = this.dgChildList.CurrentRow.Index;
+                    int childId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
+                    GlobalVars.connection.deleteBaby(childId);
+                    initChildList(GlobalVars.activeGroupId);
+                }
+            }
         }
     }
 }

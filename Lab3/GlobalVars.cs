@@ -36,6 +36,8 @@ namespace Lab3
         /// </summary>
         public static int activeGroupId = -1;
 
+        public static int activeBabyId = -1;
+
         /// <summary>
         /// Выводит предупреждающее диалоговое окно
         /// </summary>
@@ -55,6 +57,11 @@ namespace Lab3
             return MessageBox.Show(null, msg, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
+        /// <summary>
+        /// Проверяет строку на валидность
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool isValidateString(String str)
         {
 
