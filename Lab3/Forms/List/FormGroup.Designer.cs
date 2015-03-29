@@ -30,11 +30,6 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgGroupList = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgGroupList)).BeginInit();
             this.SuspendLayout();
@@ -53,12 +48,6 @@
             this.dgGroupList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgGroupList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgGroupList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgGroupList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
             this.dgGroupList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgGroupList.Location = new System.Drawing.Point(0, 0);
             this.dgGroupList.Name = "dgGroupList";
@@ -66,31 +55,6 @@
             this.dgGroupList.Size = new System.Drawing.Size(595, 475);
             this.dgGroupList.TabIndex = 0;
             this.dgGroupList.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgGroupList_UserDeletingRow);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Номер группы";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Название группы";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Минимальный возраст";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Максимальный возраст";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Стоимость часа";
-            this.Column5.Name = "Column5";
             // 
             // FormGroup
             // 
@@ -112,10 +76,5 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgGroupList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

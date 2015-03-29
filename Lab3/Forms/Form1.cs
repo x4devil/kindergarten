@@ -29,14 +29,7 @@ namespace Lab3
         {
             while (form.DialogResult != DialogResult.OK && form.DialogResult != DialogResult.Cancel)
             {
-                try
-                {
-                    form.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                form.ShowDialog();
 
             }
             return form.DialogResult;

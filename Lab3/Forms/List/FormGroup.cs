@@ -33,17 +33,16 @@ namespace Lab3
         /// </summary>
         public void loadData()
         {
-            if (this.dgGroupList.Columns.Count > 0)
+            try
             {
-                this.dgGroupList.Columns.Clear();
+                this.dgGroupList.DataSource = GlobalVars.connection.getGroupList();
+                this.dgGroupList.Columns["group_id"].Visible = false; //Скрываем ид
             }
-
-            if (this.dgGroupList.Rows.Count > 0)
+            catch (Exception ex)
             {
-                this.dgGroupList.Rows.Clear();
+                MessageBox.Show("loadData");
             }
-            this.dgGroupList.DataSource = GlobalVars.connection.getGroupList();
-            this.dgGroupList.Columns[0].Visible = false; //Скрываем ид
+            
         }
         /// <summary>
         /// Загрузка формы
@@ -62,33 +61,41 @@ namespace Lab3
         /// <param name="e"></param>
         private void dgGroupList_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            DialogResult dresult = GlobalVars.showQuestionMsgBox("Вы уверены, что хотите удалить группу?");
-            if (dresult == DialogResult.Yes)
+            try
             {
-                int rowIndex = e.Row.Index;
-                int groupId = -1;
-
-                if (this.dgGroupList[0, rowIndex].Value != null)
+                DialogResult dresult = GlobalVars.showQuestionMsgBox("Вы уверены, что хотите удалить группу?");
+                if (dresult == DialogResult.Yes)
                 {
-                    String tmp = this.dgGroupList[0, rowIndex].FormattedValue.ToString();
-                    if (!tmp.Equals(""))
-                    {
-                        groupId = Convert.ToInt32(tmp);
-                    }
-                }
+                    int rowIndex = e.Row.Index;
+                    int groupId = -1;
 
-                if (groupId != -1)
-                {
-                    if (!GlobalVars.connection.deleteGroup(groupId))
+                    if (this.dgGroupList[0, rowIndex].Value != null)
                     {
-                        GlobalVars.showWarningMsgBox("Невозможно удалить группу. Есть связанные данные.");
+                        String tmp = this.dgGroupList[0, rowIndex].FormattedValue.ToString();
+                        if (!tmp.Equals(""))
+                        {
+                            groupId = Convert.ToInt32(tmp);
+                        }
                     }
-                    else
+
+                    if (groupId != -1)
                     {
-                        loadData();
+                        if (!GlobalVars.connection.deleteGroup(groupId))
+                        {
+                            GlobalVars.showWarningMsgBox("Невозможно удалить группу. Есть связанные данные.");
+                        }
+                        else
+                        {
+                            //loadData();
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("dgGroupList_UserDeletingRow");
+            }
+            
         }
 
         /// <summary>
