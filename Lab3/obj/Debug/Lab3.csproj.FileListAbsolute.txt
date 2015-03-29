@@ -91,3 +91,4 @@ D:\Семестр 8\Командная разработка\Project\kindergarten
 D:\Семестр 8\Командная разработка\Project\kindergarten\kindergarten\Lab3\obj\Debug\Lab3.FormGroup.resources
 D:\Семестр 8\Командная разработка\Project\kindergarten\kindergarten\Lab3\obj\Debug\Lab3.Properties.Resources.resources
 D:\Семестр 8\Командная разработка\Project\kindergarten\kindergarten\Lab3\obj\Debug\Lab3.csproj.GenerateResource.Cache
+D:\Семестр 8\Командная разработка\Project\kindergarten\kindergarten\Lab3\obj\Debug\Lab3.Forms.FormMove.resources

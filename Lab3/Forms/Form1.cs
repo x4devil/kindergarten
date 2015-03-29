@@ -193,5 +193,50 @@ namespace Lab3
                 initChildList(GlobalVars.activeGroupId);
             }
         }
+
+        /// <summary>
+        /// Обработка удаления выбранного ребенка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (this.dgChildList.CurrentRow != null)
+            {
+                int rowIndex = this.dgChildList.CurrentRow.Index;
+                int babyId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
+                
+                DialogResult dresult = GlobalVars.showQuestionMsgBox("Вы уверены, что хотите удалить всю информацию о ребенке?");
+                if (dresult == DialogResult.Yes)
+                {
+                    GlobalVars.connection.deleteBaby(babyId);
+                    initChildList(GlobalVars.activeGroupId);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обработка перевода ребенка в другую группу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMove_Click(object sender, EventArgs e)
+        {
+            if (GlobalVars.connection.getGroupCount() > 1)
+            {
+                if (this.dgChildList.CurrentRow != null)
+                {
+                    int rowIndex = this.dgChildList.CurrentRow.Index;
+                    GlobalVars.activeBabyId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
+
+                    showForm(new FormMove());
+                    initChildList(GlobalVars.activeGroupId);
+                }
+            }
+            else
+            {
+                GlobalVars.showWarningMsgBox("У вас нет других групп");
+            }
+        }
     }
 }

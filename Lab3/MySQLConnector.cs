@@ -227,6 +227,24 @@ namespace Lab3
         }
 
         /// <summary>
+        /// Получает количество групп
+        /// </summary>
+        /// <returns>Возвращает количество групп или -1 если групп нет</returns>
+        public int getGroupCount()
+        {
+            String sql = "select count(group_id) from grouptable";
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        /// <summary>
         /// Получает список названий групп 
         /// </summary>
         /// <returns>Список названий групп</returns>
@@ -266,6 +284,24 @@ namespace Lab3
             }
 
             return -1;
+        }
+
+        /// <summary>
+        /// Получает название группы по ее ИД
+        /// </summary>
+        /// <param name="id">ИД группы</param>
+        /// <returns>Название группы или null</returns>
+        public String getGroupNameById(int id)
+        {
+            String sql = String.Format("select group_name from grouptable where group_id = {0} ", id);
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return table.Rows[0][0].ToString();
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -397,10 +433,23 @@ namespace Lab3
             second_name, first_name, third_name, phone, location, group, educator_id);
             return execute(sql);
         }
+
+        /// <summary>
+        /// Перевод ребенка в другую группу
+        /// </summary>
+        /// <param name="babyId">ИД ребенка, которого переводим</param>
+        /// <param name="groupId">ИД группы в которую переводим ребенка </param>
+        /// <returns></returns>
+        public bool moveBaby(int babyId, int groupId)
+        {
+            String sql = String.Format("update baby set group_id = {0} where baby_id = {1}", groupId, babyId);
+            return execute(sql);
+        }
         /*****************************************************************************************
          ************************* Методы связанные с удалением данных***************************** 
          *****************************************************************************************
          */
+
         /// <summary>
         /// Удаление группы по заданному id
         /// </summary>
@@ -420,6 +469,17 @@ namespace Lab3
         public bool deleteEducator(int id)
         {
             String sql = String.Format("delete from educator where educator_id = '{0}'", id);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Удаление ребенка по заданому id
+        /// </summary>
+        /// <param name="id">ИД ребенка, которого необходимо удалить</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool deleteBaby(int id)
+        {
+            String sql = String.Format("delete from baby where baby_id = '{0}'", id);
             return execute(sql);
         }
     }

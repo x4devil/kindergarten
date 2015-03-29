@@ -37,6 +37,11 @@ namespace Lab3
         public static int activeGroupId = -1;
 
         /// <summary>
+        /// Активный ребенок (ребенок с которым сейчас работаем)
+        /// </summary>
+        public static int activeBabyId = -1;
+
+        /// <summary>
         /// Выводит предупреждающее диалоговое окно
         /// </summary>
         /// <param name="msg">Текст сообщения</param>
