@@ -63,7 +63,7 @@ namespace Lab3
         {
             try
             {
-                DialogResult dresult = GlobalVars.showQuestionMsgBox("Вы уверены, что хотите удалить группу?");
+                DialogResult dresult = GlobalVars.showQuestionMsgBox(this,"Вы уверены, что хотите удалить группу?");
                 if (dresult == DialogResult.Yes)
                 {
                     int rowIndex = e.Row.Index;
@@ -82,11 +82,9 @@ namespace Lab3
                     {
                         if (!GlobalVars.connection.deleteGroup(groupId))
                         {
-                            GlobalVars.showWarningMsgBox("Невозможно удалить группу. Есть связанные данные.");
-                        }
-                        else
-                        {
-                            //loadData();
+                            GlobalVars.showWarningMsgBox(this, "Невозможно удалить группу. Есть связанные данные.");
+                            e.Cancel = true;
+                            this.dgGroupList.DataSource = GlobalVars.connection.getGroupList();
                         }
                     }
                 }
@@ -107,17 +105,22 @@ namespace Lab3
         {
             if (!isEnd)
             {
-                DialogResult dresult = GlobalVars.showQuestionMsgBox("Сохранить изменения?");
+                DialogResult dresult = GlobalVars.showQuestionMsgBox(this, "Сохранить изменения?");
                 if (dresult == DialogResult.Yes)
                 {
                     if (saveData())
                     {
+                        this.DialogResult = DialogResult.OK;
                         e.Cancel = false;
                     }
                     else
                     {
                         e.Cancel = true;
                     }
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.Cancel;
                 }
             }
         }
@@ -175,9 +178,9 @@ namespace Lab3
             List<String> names = new List<String>();
             for (int i = 0; i < rowsCount - 1; i++)
             {
-                if (this.dgGroupList[1, i].Value == null || !GlobalVars.isValidateString(this.dgGroupList[1, i].Value.ToString()))
+                if (this.dgGroupList[1, i].Value == null || !GlobalVars.isValiString(this.dgGroupList[1, i].Value.ToString()))
                 {
-                    GlobalVars.showWarningMsgBox("Укажите корректное название группы");
+                    GlobalVars.showWarningMsgBox(this, "Укажите корректное название группы");
                     this.dgGroupList.CurrentCell = this.dgGroupList[1, i];
                     return false;
                 }
@@ -186,7 +189,7 @@ namespace Lab3
                     if (names.Contains(this.dgGroupList[1, i].Value.ToString()))
                     {
                         this.dgGroupList.CurrentCell = this.dgGroupList[1, i];
-                        GlobalVars.showWarningMsgBox("Названия групп должны быть уникальными");
+                        GlobalVars.showWarningMsgBox(this, "Названия групп должны быть уникальными");
                         return false;
                     }
                     else
@@ -198,28 +201,28 @@ namespace Lab3
                 if (this.dgGroupList[2, i].Value.ToString().Equals("") ||
                     !isValidateAge(Convert.ToDouble(this.dgGroupList[2, i].Value)))
                 {
-                    GlobalVars.showWarningMsgBox("Укажите корректный возраст");
+                    GlobalVars.showWarningMsgBox(this, "Укажите корректный возраст");
                     this.dgGroupList.CurrentCell = this.dgGroupList[2, i];
                     return false;
                 }
                 if (this.dgGroupList[3, i].Value.ToString().Equals("") ||
                     !isValidateAge(Convert.ToDouble(this.dgGroupList[3, i].Value)))
                 {
-                    GlobalVars.showWarningMsgBox("Укажите корректный возраст");
+                    GlobalVars.showWarningMsgBox(this, "Укажите корректный возраст");
                     this.dgGroupList.CurrentCell = this.dgGroupList[3, i];
                     return false;
                 }
                 if (this.dgGroupList[4, i].Value.ToString().Equals("") ||
                     Convert.ToInt32(this.dgGroupList[4, i].Value) <= 0)
                 {
-                    GlobalVars.showWarningMsgBox("Укажите корректную вместимость группы");
+                    GlobalVars.showWarningMsgBox(this, "Укажите корректную вместимость группы");
                     this.dgGroupList.CurrentCell = this.dgGroupList[4, i];
                     return false;
                 }
                 if (this.dgGroupList[5, i].Value.ToString().Equals("") ||
                     Convert.ToDouble(this.dgGroupList[5, i].Value) <= 0)
                 {
-                    GlobalVars.showWarningMsgBox("Укажите корректную стоимость");
+                    GlobalVars.showWarningMsgBox(this, "Укажите корректную стоимость");
                     this.dgGroupList.CurrentCell = this.dgGroupList[5, i];
                     return false;
                 }

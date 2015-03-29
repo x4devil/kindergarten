@@ -53,6 +53,7 @@ create table parent
   parent_work varchar(350),
   parent_workphone varchar(15),
   baby_id int not null,
+  parent_info varchar(100) not null,
  primary key (parent_id,baby_id)
 )
 ;
@@ -163,8 +164,8 @@ create table string_shedulevisit
   string_id int not null auto_increment,
   eating_morning bool not null,
   eating_evening bool not null,
-  time_begin datetime not null,
-  time_end datetime not null,
+  time_begin time not null,
+  time_end time not null,
   dayweek_id int,
   shedulevisit_id int not null,
   baby_id int not null,

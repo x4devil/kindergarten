@@ -420,6 +420,37 @@ namespace Lab3
                 return 0;
             }
         }
+
+        /// <summary>
+        /// Получает максимальный ид ребенка
+        /// </summary>
+        /// <returns>максималь ид ребенка или -1 если таблица пуста</returns>
+        public int getMaxBabyId()
+        {
+            String sql = "select max(baby_id) from baby";
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// Получает максимальный ид планируемого графика посещения
+        /// </summary>
+        /// <returns>максималь ид графика или -1 если таблица пуста</returns>
+        public int getMaxSheduleVisitId()
+        {
+            String sql = "select max(shedulevisit_id) from shedulevisit";
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+            return -1;
+        }
+        
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -483,6 +514,110 @@ namespace Lab3
             return execute(sql);
         }
 
+        /// <summary>
+        /// Вставка нового ребенка
+        /// </summary>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="patronomic">Отчество</param>
+        /// <param name="birthday">День рождения</param>
+        /// <param name="healtCertificate">Наличие справки о здоровье</param>
+        /// <param name="groupId">Ид группы</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertBaby(String surname, String name, String patronomic, String birthday, int healtCertificate, int groupId)
+        {
+            String sql = String.Format("insert into baby (baby_surname, baby_name, baby_patronomic, health_certificat, group_id, baby_birthday)" +
+                " values ('{0}', '{1}', '{2}', {3}, {4}, STR_TO_DATE('{5}', '%Y.%m.%d') )",
+                surname, name, patronomic,healtCertificate, groupId, birthday);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Вставка информации о прививках
+        /// </summary>
+        /// <param name="babyId">Ид ребенка</param>
+        /// <param name="dtp">Дата для АКДС</param>
+        /// <param name="parotits">Дата для паротита</param>
+        /// <param name="tuber">Дата для туберкулеза</param>
+        /// <param name="pol">Дата для полимелита</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertImmunization(int babyId, String dtp, String parotits, String tuber, String poli)
+        {
+            String sql = String.Format("insert into immunization (baby_id, dtp, parotits, poli, tuberculosis) " +
+                "values({0}, STR_TO_DATE('{1}', '%Y.%m.%d'), STR_TO_DATE('{2}', '%Y.%m.%d'), STR_TO_DATE('{3}', '%Y.%m.%d'), STR_TO_DATE('{4}', '%Y.%m.%d'))",
+                babyId, dtp, parotits,tuber, poli);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Вставка информации о планируемом графике посещения
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <param name="dateBegin">Дата начала графика</param>
+        /// <param name="dateEnd">Дата окончания графика</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertSheduleVisit(int babyId, String dateBegin, String dateEnd)
+        {
+            String sql = String.Format("insert into shedulevisit (baby_id, date_begin, date_end) " +
+                " values({0}, STR_TO_DATE('{1}', '%Y.%m.%d'), STR_TO_DATE('{2}', '%Y.%m.%d'))", babyId, dateBegin, dateEnd);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Вставка информации о строке планируемого графика посещения
+        /// </summary>
+        /// <param name="shedulevisitId">ИД графика</param>
+        /// <param name="dayWeekId">ИД дня недели</param>
+        /// <param name="eatMorning">Питание утром</param>
+        /// <param name="eatEvening">Питание вечером</param>
+        /// <param name="timeBegin">Время прихода</param>
+        /// <param name="timeEnd">Время ухода</param>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertSheduleVisitString(int shedulevisitId, int dayWeekId, int eatMorning, int eatEvening, String timeBegin, String timeEnd, int babyId)
+        {
+            String sql = String.Format("insert into string_shedulevisit (shedulevisit_id, dayweek_id, eating_morning, eating_evening, time_begin, time_end, baby_id) " +
+                " values({0}, {1}, {2}, {3}, '{4}', '{5}', {6})",
+                shedulevisitId, dayWeekId, eatMorning, eatEvening, timeBegin, timeEnd, babyId);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Вставка родителя
+        /// </summary>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="patronomic">Отчество</param>
+        /// <param name="location">Место проживания</param>
+        /// <param name="phone">Телефон</param>
+        /// <param name="workphone">Рабочий телефон</param>
+        /// <param name="work">Место работы</param>
+        /// <param name="parent_info">Информация</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertParent(String surname, String name, String patronomic, String phone, String workphone, String location, String work, String parent_info, int babyId)
+        {
+            String sql = String.Format("insert into parent (parent_surname, parent_name, parent_patronomic, parent_phone, parent_workphone, parent_location, parent_work, parent_info, baby_id)" +
+                " values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', {8} )",
+                surname, name, patronomic, phone, workphone, location, work, parent_info, babyId);
+            return execute(sql);
+        }
+        /// <summary>
+        /// Вставка довереного лица
+        /// </summary>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="patronomic">Отчество</param>
+        /// <param name="phone">Телефон</param>
+        /// <param name="caption">Описание</param>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertTrustee(String surname, String name, String patronomic, String phone, String caption, int babyId)
+        {
+            String sql = String.Format("insert into trustee (trustee_surname, trustee_name, trustee_patronomic, trustee_phone, trustee_caption, baby_id)" + 
+                "values ('{0}', '{1}', '{2}', '{3}', '{4}', {5})", 
+                surname, name, patronomic, phone, caption, babyId);
+            return execute(sql);
+        }
         /*****************************************************************************************
          ************************* Методы связанные с обновлением данных***************************** 
          *****************************************************************************************

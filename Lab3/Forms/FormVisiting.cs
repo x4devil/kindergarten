@@ -235,7 +235,7 @@ namespace Lab3
             int rowIndex = this.dgVisitingList.CurrentCellAddress.Y;
             if (!this.dgVisitingList[ 3,rowIndex].Value.Equals(DBNull.Value))
             {
-                GlobalVars.showWarningMsgBox("Этот ребенок уже отмечен.");
+                GlobalVars.showWarningMsgBox(this, "Этот ребенок уже отмечен.");
             }
             else
             {
@@ -251,19 +251,19 @@ namespace Lab3
             int rowIndex = this.dgVisitingList.CurrentCellAddress.Y;
             if (this.dgVisitingList[3, rowIndex].Value.Equals(DBNull.Value))
             {
-                GlobalVars.showWarningMsgBox("Этого ребенка еще не привели.");
+                GlobalVars.showWarningMsgBox(this, "Этого ребенка еще не привели.");
             }
             else 
             {
                 if (!this.dgVisitingList[4, rowIndex].Value.Equals(DBNull.Value))
                 {
-                    GlobalVars.showWarningMsgBox("Этого ребенка уже забрали.");
+                    GlobalVars.showWarningMsgBox(this, "Этого ребенка уже забрали.");
                 }
                 else
                 {
                     if (this.dgVisitingList[5, rowIndex].Value.Equals(DBNull.Value))
                     {
-                        GlobalVars.showWarningMsgBox("Необходимо выбрать воспитателя.");
+                        GlobalVars.showWarningMsgBox(this, "Необходимо выбрать воспитателя.");
                     }
                     else
                     {

@@ -105,7 +105,7 @@ namespace Lab3
         /// </summary>
         public void deleteSelectedEducator()
         {
-            DialogResult dresult = GlobalVars.showQuestionMsgBox("Вы уверены, что хотите удалить этого воспитателя?");
+            DialogResult dresult = GlobalVars.showQuestionMsgBox(this, "Вы уверены, что хотите удалить этого воспитателя?");
             if (dresult == DialogResult.Yes)
             {
                 int rowIndex = this.dgEducatorList.CurrentCellAddress.Y;
@@ -124,7 +124,7 @@ namespace Lab3
                 {
                     if (!GlobalVars.connection.deleteEducator(educatorId))
                     {
-                        GlobalVars.showWarningMsgBox("Невозможно удалить воспитателя. Есть связанные данные.");
+                        GlobalVars.showWarningMsgBox(this, "Невозможно удалить воспитателя. Есть связанные данные.");
                     }
                     else
                     {

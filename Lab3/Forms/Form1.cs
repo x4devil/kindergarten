@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lab3.Forms;
 using System.Threading;
+using Lab3.List;
 
 namespace Lab3
 {
@@ -76,7 +77,7 @@ namespace Lab3
             //Проверяем есть ли группы
             if (!GlobalVars.connection.isHasGroup())
             {
-                GlobalVars.showWarningMsgBox("Необходимо создать хотя бы одну группу");
+                GlobalVars.showWarningMsgBox(this,"Необходимо создать хотя бы одну группу");
                 DialogResult result = showForm(new FormGroup());
 
                 if (result == DialogResult.Cancel && !GlobalVars.connection.isHasGroup())
@@ -104,7 +105,19 @@ namespace Lab3
             {
                 this.cbGroupNames.Items.Add(names[i]);
             }
-            this.cbGroupNames.SelectedIndex = 0;
+            if (countNames == 0)
+            {
+                while (!GlobalVars.connection.isHasGroup())
+                {
+                    GlobalVars.showWarningMsgBox(this, "Необходимо создать хотя бы одну группу");
+                    showForm(new FormGroup());
+                }
+                initComboBoxGroupNames();
+            }
+            else
+            {
+                this.cbGroupNames.SelectedIndex = 0;
+            }
         }
 
         /// <summary>
@@ -221,7 +234,7 @@ namespace Lab3
             }
             else
             {
-                GlobalVars.showWarningMsgBox("У вас только одна группа");
+                GlobalVars.showWarningMsgBox(this, "У вас только одна группа");
             }
             
         }
@@ -235,13 +248,21 @@ namespace Lab3
         {
             if (this.dgChildList.CurrentRow != null)
             {
-                if (GlobalVars.showQuestionMsgBox("Вы уверены, что хотите удалить всю информацию о ребенкке?") == DialogResult.Yes)
+                if (GlobalVars.showQuestionMsgBox(this, "Вы уверены, что хотите удалить всю информацию о ребенкке?") == DialogResult.Yes)
                 {
                     int rowIndex = this.dgChildList.CurrentRow.Index;
                     int childId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
                     GlobalVars.connection.deleteBaby(childId);
                     initChildList(GlobalVars.activeGroupId);
                 }
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (showForm(new FormAddBaby()) == DialogResult.OK)
+            {
+                initChildList(GlobalVars.activeGroupId);
             }
         }
     }

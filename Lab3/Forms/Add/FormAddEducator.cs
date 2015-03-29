@@ -116,20 +116,20 @@ namespace Lab3.Add
             if ( !isValidName(this.tbSecondname.Text.ToString()) ||
                     !isEmptyName(this.tbSecondname.Text.ToString()) )
             {
-                GlobalVars.showWarningMsgBox("Фамилия указана некорректно");
+                GlobalVars.showWarningMsgBox(this, "Фамилия указана некорректно");
                 this.tbSecondname.Focus();
                 return false;
             }
             if (!isValidName(this.tbFirstname.Text.ToString()) ||
                     !isEmptyName(this.tbFirstname.Text.ToString()))
             {
-                GlobalVars.showWarningMsgBox("Имя указано некорректно");
+                GlobalVars.showWarningMsgBox(this, "Имя указано некорректно");
                 this.tbFirstname.Focus();
                 return false;
             }
             if ( !isValidName(this.tbThirdname.Text.ToString()) )
             {
-                GlobalVars.showWarningMsgBox("Отчество указано некорректно");
+                GlobalVars.showWarningMsgBox(this, "Отчество указано некорректно");
                 this.tbThirdname.Focus();
                 return false;
             }

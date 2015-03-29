@@ -200,7 +200,7 @@ namespace Lab3.Forms
             this.DialogResult = DialogResult.Cancel;
             if (!GlobalVars.connection.connectionIsOpen())
             {
-                DialogResult result = GlobalVars.showQuestionMsgBox("Если вы закроете это окно, то будет закрыто все приложение, так как отсутствует подключение к БД");
+                DialogResult result = GlobalVars.showQuestionMsgBox(this, "Если вы закроете это окно, то будет закрыто все приложение, так как отсутствует подключение к БД");
                 if (result == DialogResult.Yes)
                 {
                     this.Close();

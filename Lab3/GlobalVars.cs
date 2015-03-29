@@ -36,15 +36,23 @@ namespace Lab3
         /// </summary>
         public static int activeGroupId = -1;
 
+        /// <summary>
+        /// Выбранный ребенок
+        /// </summary>
         public static int activeBabyId = -1;
+
+        /// <summary>
+        /// Флаг указывает, что мы редактируем или добавляем информацию о ребенке
+        /// </summary>
+        public static bool babyIsEdit = false;
 
         /// <summary>
         /// Выводит предупреждающее диалоговое окно
         /// </summary>
         /// <param name="msg">Текст сообщения</param>
-        public static void showWarningMsgBox(String msg)
+        public static void showWarningMsgBox(Form form, String msg)
         {
-            MessageBox.Show(null, msg, "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(form, msg, "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         /// <summary>
@@ -52,9 +60,9 @@ namespace Lab3
         /// </summary>
         /// <param name="msg">Текст сообщения</param>
         /// <returns>Возвращает результат диалога. Yes - Если нажата кнопка "Да", No - иначе</returns>
-        public static DialogResult showQuestionMsgBox(String msg)
+        public static DialogResult showQuestionMsgBox(Form form, String msg)
         {
-            return MessageBox.Show(null, msg, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return MessageBox.Show(form, msg, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         /// <summary>
@@ -62,7 +70,7 @@ namespace Lab3
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool isValidateString(String str)
+        public static bool isValiString(String str)
         {
 
             if (str == null || str.Equals("") || str.Equals(" "))
