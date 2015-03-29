@@ -131,7 +131,7 @@ create table visiting
   visiting_id int not null auto_increment,
   visiting_date date not null,
   visiting_timebegin datetime not null,
-  visiting_timeend datetime not null,
+  visiting_timeend datetime ,
   educator_id int,
   baby_id int not null,
   trustee_id int,
