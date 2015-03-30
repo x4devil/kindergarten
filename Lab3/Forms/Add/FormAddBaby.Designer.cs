@@ -1095,6 +1095,7 @@
             this.dgTrustee.RowTemplate.Height = 23;
             this.dgTrustee.Size = new System.Drawing.Size(798, 263);
             this.dgTrustee.TabIndex = 0;
+            this.dgTrustee.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgTrustee_UserDeletingRow);
             // 
             // Column1
             // 

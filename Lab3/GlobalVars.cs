@@ -47,6 +47,10 @@ namespace Lab3
         public static bool babyIsEdit = false;
 
         /// <summary>
+        /// День рождения выбраного ребенка
+        /// </summary>
+        public static DateTime birthdayActiveBaby = DateTime.Now;
+        /// <summary>
         /// Выводит предупреждающее диалоговое окно
         /// </summary>
         /// <param name="msg">Текст сообщения</param>

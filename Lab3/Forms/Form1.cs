@@ -136,6 +136,7 @@ namespace Lab3
                 this.dgChildList.Rows.Clear();
             }
             this.dgChildList.DataSource = GlobalVars.connection.getChildList(groupId);
+            this.dgChildList.Columns[0].Visible = false;
         }
         
         /// <summary>
@@ -226,6 +227,8 @@ namespace Lab3
                 {
                     int rowIndex = this.dgChildList.CurrentRow.Index;
                     GlobalVars.activeBabyId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
+                    GlobalVars.birthdayActiveBaby = Convert.ToDateTime(this.dgChildList[4, rowIndex].Value);
+
                     if (showForm(new MoveForm()) == DialogResult.OK)
                     {
                         initChildList(GlobalVars.activeGroupId);
@@ -258,11 +261,35 @@ namespace Lab3
             }
         }
 
+        /// <summary>
+        /// Добавление нового ребенка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (showForm(new FormAddBaby()) == DialogResult.OK)
             {
                 initChildList(GlobalVars.activeGroupId);
+            }
+        }
+
+        /// <summary>
+        /// Редактирование личной карты ребенка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void редактированиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgChildList.CurrentRow != null)
+            {
+                int rowIndex = this.dgChildList.CurrentRow.Index;
+                GlobalVars.activeBabyId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
+                GlobalVars.babyIsEdit = true;
+                if (showForm(new FormAddBaby()) == DialogResult.OK)
+                {
+                    initChildList(GlobalVars.activeGroupId);
+                }
             }
         }
     }

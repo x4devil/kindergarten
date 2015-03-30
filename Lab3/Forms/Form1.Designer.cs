@@ -281,7 +281,7 @@
             this.личнаяКартаToolStripMenuItem,
             this.оплатаToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // личнаяКартаToolStripMenuItem
             // 
@@ -289,7 +289,7 @@
             this.просмотрToolStripMenuItem,
             this.редактированиеToolStripMenuItem});
             this.личнаяКартаToolStripMenuItem.Name = "личнаяКартаToolStripMenuItem";
-            this.личнаяКартаToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.личнаяКартаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.личнаяКартаToolStripMenuItem.Text = "Личная карта";
             // 
             // просмотрToolStripMenuItem
@@ -303,11 +303,12 @@
             this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
             this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.редактированиеToolStripMenuItem.Text = "Редактирование";
+            this.редактированиеToolStripMenuItem.Click += new System.EventHandler(this.редактированиеToolStripMenuItem_Click);
             // 
             // оплатаToolStripMenuItem
             // 
             this.оплатаToolStripMenuItem.Name = "оплатаToolStripMenuItem";
-            this.оплатаToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.оплатаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.оплатаToolStripMenuItem.Text = "Оплата";
             // 
             // Form1

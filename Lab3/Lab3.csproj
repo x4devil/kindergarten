@@ -57,6 +57,7 @@
     <Compile Include="Forms\Add\FormAddEducator.Designer.cs">
       <DependentUpon>FormAddEducator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objects\Baby.cs" />
     <Compile Include="Forms\ConnectMsgBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +144,11 @@
     </Compile>
     <Compile Include="GlobalVars.cs" />
     <Compile Include="MySQLConnector.cs" />
+    <Compile Include="Objects\Immunization.cs" />
+    <Compile Include="Objects\Parent.cs" />
+    <Compile Include="Objects\SheduleVisit.cs" />
+    <Compile Include="Objects\StringSheduleVisit.cs" />
+    <Compile Include="Objects\Trustee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Add\FormAddBaby.resx">

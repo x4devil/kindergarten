@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Lab3.Forms;
+using Lab3.Objects;
 
 namespace Lab3
 {
@@ -152,10 +154,50 @@ namespace Lab3
             }
         }
 
+        /// <summary>
+        /// Конвертирует время в дату и время
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public DateTime convertTimeToDateTime(String time)
+        {
+            String[] buf = time.Split(new char[] { ':' });
+            return new DateTime(1755, 1, 1, Convert.ToInt32(buf[0]), Convert.ToInt32(buf[1]), Convert.ToInt32(buf[2]));
+        }
         /*****************************************************************************************
          ************************* Методы связанные с выборкой данных***************************** 
          *****************************************************************************************
          */
+
+        public double getMaxAgeGroup(int groupId)
+        {
+            String sql = String.Format("select max_age from grouptable where group_id = {0}", groupId);
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToDouble(table.Rows[0][0]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public double getMinAgeGroup(int groupId)
+        {
+            String sql = String.Format("select min_age from grouptable where group_id = {0}", groupId);
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToDouble(table.Rows[0][0]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
         /// <summary>
         /// Получает список групп 
         /// </summary>
@@ -362,7 +404,7 @@ namespace Lab3
         public DataTable getEducatorLoV()
         {
             String sql = "select concat_ws(\" \", educator_surname, educator_name) as \"ФИО\"," +
-                " educator_id \"Номер\" " +
+                " educator_id as \"Номер\" " +
                 " from educator";
             return select(sql);
         }
@@ -374,7 +416,7 @@ namespace Lab3
         public DataTable getTrusteeLoV(int id) //LoV - list of values
         {
             String sql = String.Format("select concat_ws(\" \",trustee_surname,trustee_name) as \"ФИО\"," +
-                " trustee_id \"Номер\" " +
+                " trustee_id as \"Номер\" " +
                 " from trustee" +
                 " where baby_id = '{0}'",
                 id);
@@ -400,7 +442,6 @@ namespace Lab3
                 return null;
             }
         }
-
 
         /// <summary>
         /// Получает количество групп
@@ -450,12 +491,210 @@ namespace Lab3
             }
             return -1;
         }
-        
+
+        /// <summary>
+        /// Возвращает информацию о ребенке
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>Экземпляр класса Baby или null если ничего не найдено</returns>
+        public Baby getBaby(int babyId)
+        {
+            String sql = String.Format("select baby_surname, baby_name, baby_patronomic, health_certificat, baby_birthday, baby_id "  +
+                "from baby where baby_id = {0}", babyId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                Baby baby = new Baby();
+                baby.surname = table.Rows[0][0].ToString();
+                baby.name = table.Rows[0][1].ToString();
+                baby.patronomic = table.Rows[0][2].ToString();
+                bool buf = Convert.ToBoolean(table.Rows[0][3].ToString());
+                baby.healthCertificate = Convert.ToInt32(buf);
+                baby.birthday = Convert.ToDateTime(table.Rows[0][4]);
+                baby.id = Convert.ToInt32(table.Rows[0][5]);
+
+                return baby;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает информацию о прививках
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>Информация о ребенке или null если информация не найдена</returns>
+        public Immunization getImmun(int babyId)
+        {
+            String sql = String.Format("select immunizations_id, dtp, parotits, tuberculosis, poli from immunization where baby_id = {0}", babyId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                Immunization imun = new Immunization();
+                imun.id = Convert.ToInt32(table.Rows[0][0]);
+                imun.dtp = Convert.ToDateTime(table.Rows[0][1]);
+                imun.parotits = Convert.ToDateTime(table.Rows[0][2]);
+                imun.tuber = Convert.ToDateTime(table.Rows[0][3]);
+                imun.poli = Convert.ToDateTime(table.Rows[0][4]);
+
+                return imun;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает информацию о графике посещения
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>Информация о графике посещения или null если информация не найдена</returns>
+        public SheduleVisit getSheduleVisit(int babyId)
+        {
+            String sql = String.Format("select shedulevisit_id, date_begin, date_end from shedulevisit where baby_id = {0}", babyId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                SheduleVisit visit = new SheduleVisit();
+                visit.id = Convert.ToInt32(table.Rows[0][0]);
+                visit.dateBegin = Convert.ToDateTime(table.Rows[0][1]);
+                visit.dateEnd = Convert.ToDateTime(table.Rows[0][2]);
+
+                return visit;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает строки графика посещения
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>Строки графика посещения или null если информация не найдена</returns>
+        public List<StringSheduleVisit> getStringSheduleVisit(int babyId)
+        {
+            String sql = String.Format("select string_id, eating_morning, eating_evening, time_begin, time_end, dayweek_id from string_shedulevisit where baby_id = {0}", babyId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                int rowCount = table.Rows.Count;
+                List<StringSheduleVisit> result = new List<StringSheduleVisit>();
+                for (int i = 0; i < rowCount; i++)
+                {
+                    StringSheduleVisit str = new StringSheduleVisit();
+                    str.id = Convert.ToInt32(table.Rows[i][0]);
+                    str.eatMorning = Convert.ToInt32(table.Rows[i][1]);
+                    str.eatEvening = Convert.ToInt32(table.Rows[i][2]);
+                    str.timeBegin = convertTimeToDateTime(table.Rows[i][3].ToString());
+                    str.timeEnd = convertTimeToDateTime(table.Rows[i][4].ToString());
+                    str.dayWeekId = Convert.ToInt32(table.Rows[i][5]);
+
+                    result.Add(str);
+                }
+
+                return result;
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает информацию о родителях
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>Информация о родителях или null если информация не найдена</returns>
+        public List<Parent> getParents(int babyId)
+        {
+            String sql = String.Format("select parent_id, parent_surname, parent_name, parent_patronomic, parent_phone, parent_workphone, parent_location, parent_work, parent_info " + 
+                " from parent where baby_id = {0}", babyId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                int rowCount = table.Rows.Count;
+                List<Parent> result = new List<Parent>();
+                for (int i = 0; i < rowCount; i++)
+                {
+                    Parent parent = new Parent();
+                    parent.id = Convert.ToInt32(table.Rows[i][0]);
+                    parent.surname = table.Rows[i][1].ToString();
+                    parent.name = table.Rows[i][2].ToString();
+                    parent.patronomic = table.Rows[i][3].ToString();
+                    parent.phone = table.Rows[i][4].ToString();
+                    parent.workPhone = table.Rows[i][5].ToString();
+                    parent.location = table.Rows[i][6].ToString();
+                    parent.work = table.Rows[i][7].ToString();
+                    parent.parentInfo = table.Rows[i][8].ToString();
+
+                    result.Add(parent);
+                }
+
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает информацию о довереных лицах
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>Информация о довереных лицах</returns>
+        public DataTable getTrustee(int babyId)
+        {
+            String sql = String.Format("select trustee_id , trustee_surname as \"Фамилия\", trustee_name as \"Имя\", trustee_patronomic as \"Отчество\", trustee_phone \"Телефон\", trustee_caption \"Кем приходится\"from trustee where baby_id = {0}" +
+                " and trustee_caption not like 'Отец' and trustee_caption not like 'Мать'", babyId);
+            return select(sql);
+        }
+
+        /// <summary>
+        /// Ищет ид довереного лица по ИД ребенка и описанию
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <param name="caption">Описание</param>
+        /// <returns>ИД довереного лица или -1 если ничего не нашли</returns>
+        public int getTrusteeId(int babyId, String caption)
+        {
+            String sql = String.Format("select trustee_id from trustee where baby_id = {0} and trustee_caption like '{1}'",
+                babyId, caption);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public int getTrusteeId(String surname, String name)
+        {
+            String sql = String.Format("select educator_id from educator where educator_surname like = {0} and educator_name like = {1}",surname, name);
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
          */
-
         /// <summary>
         /// Вставка новой группы
         /// </summary>
@@ -681,6 +920,118 @@ namespace Lab3
             return execute(sql);
         }
 
+
+        /// <summary>
+        /// Обновление информации о ребенке
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="patronomic">Отчество</param>
+        /// <param name="health">Наличие справки</param>
+        /// <param name="birthday">День рождения</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateBaby(int babyId, String surname, String name, String patronomic, int health, String birthday)
+        {
+            String sql = String.Format("update baby" + 
+                " set baby_surname = '{0}'," +
+                " baby_name = '{1}'," +
+                " baby_patronomic = '{2}'," +
+                " health_certificat = {3}," +
+                " baby_birthday = STR_TO_DATE('{4}', '%Y.%m.%d')" +
+                " where baby_id = {5}",
+                surname, name, patronomic, health, birthday, babyId);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Обновление информации о прививках
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <param name="dtp">АКДС</param>
+        /// <param name="parotits">Паротит</param>
+        /// <param name="tuber">Туберкулез</param>
+        /// <param name="poli">Полимелит</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateImmunization(int babyId, String dtp, String parotits, String tuber, String poli)
+        {
+            String sql = String.Format("update immunization set " +
+                " dtp = STR_TO_DATE('{0}', '%Y.%m.%d')," +
+                " parotits = STR_TO_DATE('{1}', '%Y.%m.%d')," +
+                " tuberculosis = STR_TO_DATE('{2}', '%Y.%m.%d')," +
+                " poli = STR_TO_DATE('{3}', '%Y.%m.%d')" + 
+                " where baby_id = {4}",
+                dtp, parotits, tuber, poli, babyId);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Обновление графика посещения
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <param name="dateBegin">Дата начала</param>
+        /// <param name="dateEnd">Дата окончания</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateSheduleVisit(int babyId, String dateBegin, String dateEnd)
+        {
+            String sql = String.Format("update shedulevisit set " +
+                " date_begin = STR_TO_DATE('{0}', '%Y.%m.%d')," +
+                " date_end = STR_TO_DATE('{1}', '%Y.%m.%d')" +
+                " where baby_id = {2}", dateBegin, dateEnd, babyId);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Обновление информации о родителях
+        /// </summary>
+        /// <param name="parentId">ИД родителя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="patronomic">Отчество</param>
+        /// <param name="phone">Телефон</param>
+        /// <param name="workPhone">Дополнительный телефон</param>
+        /// <param name="location">Место проживания</param>
+        /// <param name="work">Место работы</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateParent(int parentId, String surname, String name, String patronomic, String phone, String workPhone, String location, String work)
+        {
+            String sql = String.Format("update parent set " + 
+                " parent_surname = '{0}'," +
+                " parent_name = '{1}'," +
+                " parent_patronomic = '{2}'," +
+                " parent_phone = '{3}'," +
+                " parent_workphone = '{4}'," +
+                " parent_location = '{5}'," +
+                " parent_work = '{6}' " +
+                " where parent_id = {7}",
+                surname, name, patronomic, phone, workPhone, location, work, parentId);
+
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Обновление информации о довереных лицах
+        /// </summary>
+        /// <param name="trusteeId">ИД довереного лица</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="patronomic">Отчество</param>
+        /// <param name="phone">Телефон</param>
+        /// <param name="caption">Описание</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateTrustee(int trusteeId, String surname, String name, String patronomic, String phone, String caption)
+        {
+            String sql = String.Format("update trustee set " + 
+                " trustee_surname = '{0}'," +
+                " trustee_name = '{1}'," +
+                " trustee_patronomic = '{2}'," +
+                " trustee_phone = '{3}', " +
+                " trustee_caption = '{4}' " + 
+                " where trustee_id = {5}",
+                surname, name, patronomic, phone, caption, trusteeId);
+            return execute(sql);
+        }
+        
         /// <summary>
         /// Перевод ребенка в другую группу
         /// </summary>
@@ -728,6 +1079,55 @@ namespace Lab3
         {
             String sql = String.Format("delete from baby where baby_id = {0}", babyId);
             return execute(sql);
+        }
+
+        /// <summary>
+        /// Удаляет строки графика посещения
+        /// </summary>
+        /// <param name="babyId"></param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool deleteSheduleVisitString(int babyId)
+        {
+            String sql = String.Format("delete from string_shedulevisit where baby_id = {0}", babyId);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Удаление информации о довереном лице
+        /// </summary>
+        /// <param name="trusteeId">ИД довереного лица</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool deleteTrustee(int trusteeId)
+        {
+            if (isHasDate(trusteeId)) return false;
+            String sql = String.Format("delete from trustee where trustee_id = {0}", trusteeId);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Удаление информации о родителях
+        /// </summary>
+        /// <param name="parentId">ИД родителя</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool deleteParent(int parentId)
+        {
+            String sql = String.Format("delete from parent where parent_id = {0}", parentId);
+            return execute(sql);
+        }
+
+        public bool isHasDate(int trusteeId)
+        {
+            String sql = String.Format("select visiting_id_id from visitint where trustee_id = {0}",trusteeId);
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

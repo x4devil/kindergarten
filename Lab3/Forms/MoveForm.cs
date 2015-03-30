@@ -62,10 +62,32 @@ namespace Lab3.Forms
             {
                 String name = this.cbGroupNames.Items[selectIndex].ToString();
                 int groupId = GlobalVars.connection.getGroupIdByName(name);
-                GlobalVars.connection.moveChild(GlobalVars.activeBabyId, groupId);
+                
+
+                double maxAge = GlobalVars.connection.getMaxAgeGroup(groupId) * 365;
+                double minAge = GlobalVars.connection.getMinAgeGroup(groupId) * 365;
+
+                TimeSpan span = DateTime.Now.Date - GlobalVars.birthdayActiveBaby.Date;
+                String buf = "" +  span.Days ;
+                double age = Convert.ToDouble(buf);
+
+                DialogResult result = DialogResult.Cancel;
+                if (maxAge < age)
+                {
+                    result = GlobalVars.showQuestionMsgBox(this, "Возраст ребенка превышает максимальный возраст в группе. Хотите продолжить?");
+                }
+                else if(minAge > age)
+                {
+                    result = GlobalVars.showQuestionMsgBox(this, "Возраст ребенка меньше минимального возраста в группе. Хотите продолжить?");
+                }
+                if (result == DialogResult.Yes)
+                {
+                    GlobalVars.connection.moveChild(GlobalVars.activeBabyId, groupId);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
         }
 
         /// <summary>

@@ -89,6 +89,7 @@ namespace Lab3
                 this.dgVisitingList[5, i] = educators_cell;
                 this.dgVisitingList[5, i].ReadOnly = false;
 
+
                 //и уникальный список доверенных лиц
                 DataGridViewComboBoxCell truestee_cell = new DataGridViewComboBoxCell();
                 DataTable trustee_table = GlobalVars.connection.getTrusteeLoV(
