@@ -132,6 +132,7 @@ create table visiting
   visiting_date date not null,
   visiting_timebegin datetime not null,
   visiting_timeend datetime ,
+  visiting_cost float not null,
   educator_id int,
   baby_id int not null,
   trustee_id int,
