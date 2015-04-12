@@ -374,7 +374,7 @@ namespace Lab3
                 " v.visiting_timebegin as \"Привели\"," +
                 " v.visiting_timeend as \"Забрали\"," +
                 " v.educator_id as \"Воспитатель\"," +
-                " v.trustee_id as \"Доверенное лицо\" " +
+                " v.trustee_id as \"Кто забрал\" " +
                 " from visiting v" +
                 " where visiting_date = '{0}'",
                 d);

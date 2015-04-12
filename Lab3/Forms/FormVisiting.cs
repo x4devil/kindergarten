@@ -94,10 +94,10 @@ namespace Lab3
                 DataGridViewComboBoxCell truestee_cell = new DataGridViewComboBoxCell();
                 DataTable trustee_table = GlobalVars.connection.getTrusteeLoV(
                     Convert.ToInt32(this.dgVisitingList[1, i].Value));
-                DataRow null_row_t = trustee_table.NewRow();
-                null_row_t["ФИО"] = " ";
-                null_row_t["Номер"] = DBNull.Value;
-                trustee_table.Rows.InsertAt(null_row_t, 0);
+                //DataRow null_row_t = trustee_table.NewRow();
+                //null_row_t["ФИО"] = " ";
+                //null_row_t["Номер"] = DBNull.Value;
+                //trustee_table.Rows.InsertAt(null_row_t, 0);
                 truestee_cell.DataSource = trustee_table;
                 truestee_cell.DisplayMember = "ФИО";
                 truestee_cell.ValueMember = "Номер";
@@ -118,6 +118,7 @@ namespace Lab3
         /// </summary>
         private void dtVisitingDay_ValueChanged(object sender, EventArgs e)
         {
+            this.dgVisitingList.EndEdit();
             DialogResult dresult = MessageBox.Show("Сохранить изменения?",
                 "Сохранение",
                 MessageBoxButtons.YesNo,
@@ -135,6 +136,7 @@ namespace Lab3
         /// </summary>
         public void saveData()
         {
+
             int rowCount = this.dgVisitingList.Rows.Count;
             for(int i = 0; i < rowCount; i++)
             {
@@ -218,8 +220,7 @@ namespace Lab3
                     }
 
                     GlobalVars.connection.updateVisiting(
-                        Convert.ToInt32(
-                        this.dgVisitingList[0, i].Value),
+                        Convert.ToInt32(this.dgVisitingList[0, i].Value),
                         this.dgVisitingList[3, i].Value.ToString(),
                         e,
                         ed,
@@ -268,7 +269,14 @@ namespace Lab3
                     }
                     else
                     {
-                        this.dgVisitingList[4, rowIndex].Value = DateTime.Now;
+                        if (this.dgVisitingList[6, rowIndex].Value.Equals(DBNull.Value))
+                        {
+                            GlobalVars.showWarningMsgBox(this, "Необходимо выбрать родителя или доверенное лицо.");
+                        }
+                        else
+                        {
+                            this.dgVisitingList[4, rowIndex].Value = DateTime.Now;
+                        }
                     }
                 }
             } 
@@ -282,6 +290,7 @@ namespace Lab3
         /// <param name="e"></param>
         private void FormVisiting_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.dgVisitingList.EndEdit();
             DialogResult dresult = MessageBox.Show("Сохранить изменения?",
                 "Сохранение",
                 MessageBoxButtons.YesNo,
