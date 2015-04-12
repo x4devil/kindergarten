@@ -68,6 +68,9 @@ namespace Lab3
             this.dgVisitingList.Columns[0].Visible = false;
             this.dgVisitingList.Columns[1].Visible = false;
 
+            //скрываем стоблец со стоимостью
+            this.dgVisitingList.Columns[7].Visible = false;
+
             //отключаем сортировку, включает ридонли
             foreach (DataGridViewColumn column in this.dgVisitingList.Columns)
             {
@@ -103,6 +106,14 @@ namespace Lab3
                 truestee_cell.ValueMember = "Номер";
                 this.dgVisitingList[6, i] = truestee_cell;
                 this.dgVisitingList[6, i].ReadOnly = false;
+
+                //и проставляем стоимость в зависимости от группы часа, если её нет
+                if (this.dgVisitingList[7, i].Value.Equals(DBNull.Value))
+                {
+                    int baby_id = Convert.ToInt32(this.dgVisitingList[1, i].Value);
+                    int cost = GlobalVars.connection.getGroupCostByBaby(baby_id);
+                    this.dgVisitingList[7, i].Value = Convert.ToString(cost);
+                }
             }
         }
         /// <summary>
@@ -177,13 +188,16 @@ namespace Lab3
                             tr = "'" + this.dgVisitingList[6, i].Value.ToString() + "'";
                         }
 
+                        String c = "'" + this.dgVisitingList[7, i].Value.ToString() + "'";
+
                         GlobalVars.connection.insertVisiting(
                             Convert.ToInt32(this.dgVisitingList[1,i].Value),
                             date,
                             this.dgVisitingList[3,i].Value.ToString(),
                             e,
                             ed,
-                            tr
+                            tr,
+                            c
                             );
                     }
                 }

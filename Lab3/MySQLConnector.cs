@@ -374,7 +374,8 @@ namespace Lab3
                 " v.visiting_timebegin as \"Привели\"," +
                 " v.visiting_timeend as \"Забрали\"," +
                 " v.educator_id as \"Воспитатель\"," +
-                " v.trustee_id as \"Кто забрал\" " +
+                " v.trustee_id as \"Кто забрал\"," +
+                " v.visiting_cost as \"Стомость часа\" " +
                 " from visiting v" +
                 " where visiting_date = '{0}'",
                 d);
@@ -691,6 +692,29 @@ namespace Lab3
                 return -1;
             }
         }
+
+        /// <summary>
+        /// Возвращает стоимость часа для группы, в которой находится заданный ребенок
+        /// </summary>
+        /// <param name="babyId">ИД ребенка</param>
+        /// <returns>Стоимость часа</returns>
+        public int getGroupCostByBaby(int babyId)
+        {
+            String sql = String.Format("select group_coast as \"Cost\" " +
+                " from grouptable g, baby b " +
+                " where g.group_id = b.group_id " +
+                " and b.baby_id = {0}",
+                babyId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -741,15 +765,16 @@ namespace Lab3
         /// <param name="end">Время ухода</param>
         /// <param name="educator_id">Id воспитателя</param>
         /// <param name="trustee_id">Id доверенного лица</param>
+        /// <param name="cost"> Стоимость часа</param>
         /// <returns>true если операция выполнена успешно иначе false</returns>
-        public bool insertVisiting(int baby_id, String date, String begin, String end, String educator_id, String trustee_id)
+        public bool insertVisiting(int baby_id, String date, String begin, String end, String educator_id, String trustee_id, String cost)
         {
             String sql = String.Format("insert into visiting" +
-                " (visiting_date, visiting_timebegin, visiting_timeend, educator_id, baby_id, trustee_id) " +
+                " (visiting_date, visiting_timebegin, visiting_timeend, educator_id, baby_id, trustee_id, visiting_cost) " +
                 " values('{0}', STR_TO_DATE('{1}','%d.%m.%Y %H:%i:%s'), " +
                 " STR_TO_DATE({2},'%d.%m.%Y %H:%i:%s'), " +
-                " {3},{4},{5})",
-                date, begin, end, educator_id, baby_id, trustee_id);
+                " {3},{4},{5},{6})",
+                date, begin, end, educator_id, baby_id, trustee_id, cost);
             return execute(sql);
         }
 
