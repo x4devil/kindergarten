@@ -116,6 +116,7 @@
             this.оплатаПосещенияToolStripMenuItem.Name = "оплатаПосещенияToolStripMenuItem";
             this.оплатаПосещенияToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.оплатаПосещенияToolStripMenuItem.Text = "Оплата посещения";
+            this.оплатаПосещенияToolStripMenuItem.Click += new System.EventHandler(this.оплатаПосещенияToolStripMenuItem_Click);
             // 
             // учетПитанияToolStripMenuItem
             // 
@@ -310,6 +311,7 @@
             this.оплатаToolStripMenuItem.Name = "оплатаToolStripMenuItem";
             this.оплатаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.оплатаToolStripMenuItem.Text = "Оплата";
+            this.оплатаToolStripMenuItem.Click += new System.EventHandler(this.оплатаToolStripMenuItem_Click);
             // 
             // Form1
             // 

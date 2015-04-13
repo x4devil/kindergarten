@@ -292,5 +292,22 @@ namespace Lab3
                 }
             }
         }
+
+        private void оплатаПосещенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showForm(new FormCoast());
+        }
+
+        private void оплатаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgChildList.CurrentCell != null)
+            {
+                int rowIndex = this.dgChildList.CurrentCell.RowIndex;
+                GlobalVars.activeBabyId = Convert.ToInt32(this.dgChildList[0, rowIndex].Value);
+                GlobalVars.babyIsFind = true;
+                showForm(new FormCoast());
+                GlobalVars.babyIsFind = false;
+            }
+        }
     }
 }

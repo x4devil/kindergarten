@@ -911,6 +911,9 @@ namespace Lab3.List
                     }
                 }
 
+                //Добавляем в списки оплаты
+                GlobalVars.connection.insertBabyInPaymentList(babyId);
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

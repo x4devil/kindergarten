@@ -151,6 +151,7 @@
     <Compile Include="Objects\Trustee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Forms\Add\FormAddBaby.resx">
       <DependentUpon>FormAddBaby.cs</DependentUpon>
     </EmbeddedResource>

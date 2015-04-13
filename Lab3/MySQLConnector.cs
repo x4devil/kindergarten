@@ -715,6 +715,56 @@ namespace Lab3
                 return -1;
             }
         }
+
+        /// <summary>
+        /// Возвращает список оплаты пребывания ребенка
+        /// </summary>
+        /// <returns>Списки оплаты</returns>
+        public DataTable getPaymentList()
+        {
+            String sql = "select pay_id, baby_surname as \"Фамилия\", " + 
+                " baby_name as \"Имя\", " + 
+                " baby_patronomic as \"Отчество\", " +
+                " baby_birthday as \"Дата рождения\", " + 
+                " group_name as \"Группа\", " + 
+                " pay_balance as \"Баланс\" " + 
+                " from pay, grouptable, baby " + 
+                " where pay.baby_id = baby.baby_id and baby.group_id = grouptable.group_id";
+
+            return select(sql);
+        }
+
+        /// <summary>
+        /// Получает информацию о посещении ребенка
+        /// </summary>
+        /// <param name="babyId">Ид ребенка</param>
+        /// <returns>Информация о посещении ребенка</returns>
+        public DataTable getVisitingByBabyId(int babyId)
+        {
+            String sql = String.Format("select visiting_timebegin, visiting_timeend, visiting_cost" +
+                " from visiting " + 
+                " where baby_id = {0}", babyId);
+            return select(sql);
+        }
+
+        /// <summary>
+        /// Возвращает баланс ребенка
+        /// </summary>
+        /// <param name="babyId"></param>
+        /// <returns></returns>
+        public double getBabyBalance(int babyId)
+        {
+            String sql = String.Format("select pay_balance from pay where baby_id = {0}", babyId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToDouble(table.Rows[0][0]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -882,6 +932,19 @@ namespace Lab3
                 surname, name, patronomic, phone, caption, babyId);
             return execute(sql);
         }
+
+        /// <summary>
+        /// Вставка информации о ребенке в список оплаты пребывания
+        /// </summary>
+        /// <param name="babyId"></param>
+        /// <returns></returns>
+        public bool insertBabyInPaymentList(int babyId)
+        {
+            String sql = String.Format("insert into pay (baby_id, pay_balance) values({0}, {1})", babyId, 0);
+            return execute(sql);
+        }
+
+        
         /*****************************************************************************************
          ************************* Методы связанные с обновлением данных***************************** 
          *****************************************************************************************
@@ -1066,6 +1129,18 @@ namespace Lab3
         public bool moveChild(int childId, int groupId)
         {
             String sql = String.Format("update baby set group_id = {0} where baby_id = {1} ", groupId, childId);
+            return execute(sql);
+        }
+
+        /// <summary>
+        /// Обновление информации о платежах 
+        /// </summary>
+        /// <param name="babyId">Ид ребенка</param>
+        /// <param name="sum">Сумма внесения</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool updateBabyPayment(int babyId, double sum)
+        {
+            String sql = String.Format("update pay set pay_balance = {0} where baby_id = {1}", sum, babyId);
             return execute(sql);
         }
         

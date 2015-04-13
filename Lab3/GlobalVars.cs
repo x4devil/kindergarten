@@ -50,6 +50,17 @@ namespace Lab3
         /// День рождения выбраного ребенка
         /// </summary>
         public static DateTime birthdayActiveBaby = DateTime.Now;
+
+        /// <summary>
+        /// Информация о ребенке за которого мы оплачиваем
+        /// </summary>
+        public static Lab3.Forms.Baby babyPay = null;
+
+        /// <summary>
+        /// Производится поиск ребенка
+        /// </summary>
+        public static bool babyIsFind = false;
+
         /// <summary>
         /// Выводит предупреждающее диалоговое окно
         /// </summary>

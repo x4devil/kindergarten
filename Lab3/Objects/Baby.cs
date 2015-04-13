@@ -45,5 +45,10 @@ namespace Lab3.Forms
         /// День рождения
         /// </summary>
         public DateTime birthday { get; set; }
+
+        /// <summary>
+        /// Баланс
+        /// </summary>
+        public double balance { get; set; }
     }
 }
