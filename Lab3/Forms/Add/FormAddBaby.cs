@@ -118,24 +118,43 @@ namespace Lab3.List
                                 this.dtEnd7
             };
 
-            CheckBox[] eatMorning = {
-                                        this.cbEatDay1,
-                                        this.cbEatDay2,
-                                        this.cbEatDay3,
-                                        this.cbEatDay4,
-                                        this.cbEatDay5,
-                                        this.cbEatDay6,
-                                        this.cbEatDay7
+            CheckBox[] eatBreakfast = {
+                                        this.cbBreakfast1,
+                                        this.cbBreakfast2,
+                                        this.cbBreakfast3,
+                                        this.cbBreakfast4,
+                                        this.cbBreakfast5,
+                                        this.cbBreakfast6,
+                                        this.cbBreakfast7
                                     };
-            CheckBox[] eatEvening = {
-                                        this.cbEatEvening1,
-                                        this.cbEatEvening2,
-                                        this.cbEatEvening3,
-                                        this.cbEatEvening4,
-                                        this.cbEatEvening5,
-                                        this.cbEatEvening6,
-                                        this.cbEatEvening7
+            CheckBox[] eatSnack = {
+                                        this.cbSnack1,
+                                        this.cbSnack2,
+                                        this.cbSnack3,
+                                        this.cbSnack4,
+                                        this.cbSnack5,
+                                        this.cbSnack6,
+                                        this.cbSnack7
                                     };
+            CheckBox[] eatLunch = {
+                                        this.cbLunch1,
+                                        this.cbLunch2,
+                                        this.cbLunch3,
+                                        this.cbLunch4,
+                                        this.cbLunch5,
+                                        this.cbLunch6,
+                                        this.cbLunch7
+
+                                  };
+            CheckBox[] eatDinner = {
+                                       this.cbDinner1,
+                                       this.cbDinner2,
+                                       this.cbDinner3,
+                                       this.cbDinner4,
+                                       this.cbDinner5,
+                                       this.cbDinner6,
+                                       this.cbDinner7
+                                   };
             DateTime timeNull = new DateTime(1755, 1, 1, 0, 0, 0);
 
             int count = dateBegin.Count();
@@ -152,8 +171,10 @@ namespace Lab3.List
                 int index = val[i].dayWeekId - 1;
                 dateBegin[index].Value = visit.timeBegin;
                 dateEnd[index].Value = visit.timeEnd;
-                eatMorning[index].Checked = Convert.ToBoolean(val[i].eatMorning);
-                eatEvening[index].Checked = Convert.ToBoolean(val[i].eatEvening);
+                eatBreakfast[index].Checked = Convert.ToBoolean(val[i].eatBreakfast);
+                eatSnack[index].Checked = Convert.ToBoolean(val[i].eatSnack);
+                eatLunch[index].Checked = Convert.ToBoolean(val[i].eatLunch);
+                eatDinner[index].Checked = Convert.ToBoolean(val[i].eatDinner);
             }
         }
 
@@ -223,6 +244,7 @@ namespace Lab3.List
         /// <param name="e"></param>
         private void FormAddBaby_Load(object sender, EventArgs e)
         {
+            
             if (GlobalVars.babyIsEdit)
             {
                 init();
@@ -232,6 +254,7 @@ namespace Lab3.List
                 this.dtEnd.Value = this.dtBegin.Value.Date.AddDays(1);
                 this.dgTrustee.Columns[0].Visible = false;
             }
+
         }
 
         /// <summary>
@@ -357,7 +380,6 @@ namespace Lab3.List
                     this.dtBegin1.Focus();
                     return false;
                 }
-                
             }
 
             if (this.dtBegin2.Value.TimeOfDay >= this.dtEnd2.Value.TimeOfDay)
@@ -457,6 +479,110 @@ namespace Lab3.List
             return true;
         }
 
+        /// <summary>
+        /// Проверка питания на валидность 
+        /// (Функция не используется, если заставят проверять галочки на валидность, то ее нужно дописать)
+        /// </summary>
+        /// <returns></returns>
+        private bool validateStringSheduleVisit()
+        {
+            DateTimePicker[] dateBegin = {
+                                this.dtBegin1,
+                                this.dtBegin2,
+                                this.dtBegin3,
+                                this.dtBegin4,
+                                this.dtBegin5,
+                                this.dtBegin6,
+                                this.dtBegin7
+            };
+
+            DateTimePicker[] dateEnd = {
+                                this.dtEnd1,
+                                this.dtEnd2,
+                                this.dtEnd3,
+                                this.dtEnd4,
+                                this.dtEnd5,
+                                this.dtEnd6,
+                                this.dtEnd7
+            };
+
+            CheckBox[] eatBreakfast = {
+                                        this.cbBreakfast1,
+                                        this.cbBreakfast2,
+                                        this.cbBreakfast3,
+                                        this.cbBreakfast4,
+                                        this.cbBreakfast5,
+                                        this.cbBreakfast6,
+                                        this.cbBreakfast7
+                                    };
+            CheckBox[] eatSnack = {
+                                        this.cbSnack1,
+                                        this.cbSnack2,
+                                        this.cbSnack3,
+                                        this.cbSnack4,
+                                        this.cbSnack5,
+                                        this.cbSnack6,
+                                        this.cbSnack7
+                                    };
+            CheckBox[] eatLunch = {
+                                        this.cbLunch1,
+                                        this.cbLunch2,
+                                        this.cbLunch3,
+                                        this.cbLunch4,
+                                        this.cbLunch5,
+                                        this.cbLunch6,
+                                        this.cbLunch7
+
+                                  };
+            CheckBox[] eatDinner = {
+                                       this.cbDinner1,
+                                       this.cbDinner2,
+                                       this.cbDinner3,
+                                       this.cbDinner4,
+                                       this.cbDinner5,
+                                       this.cbDinner6,
+                                       this.cbDinner7
+                                   };
+            TimeSpan timeNull = new DateTime(1755, 1, 1, 0, 0, 0).TimeOfDay;
+            
+            int count = dateBegin.Count();
+            for (int i = 0; i < count; i++)
+            {
+                if (dateBegin[i].Value.TimeOfDay != timeNull && dateEnd[i].Value.TimeOfDay != timeNull)
+                {
+                    if (dateBegin[i].Value.TimeOfDay >= dateEnd[i].Value.TimeOfDay)
+                    {
+                        GlobalVars.showWarningMsgBox(this, "Время прихода не может быть больше времени ухода");
+                        this.tabControl1.SelectedIndex = 0;
+                        dateBegin[i].Focus();
+                        return false;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    if (dateBegin[i].Value.TimeOfDay == timeNull && dateEnd[i].Value.TimeOfDay != timeNull)
+                    {
+                        GlobalVars.showWarningMsgBox(this, "Укажите корректное время");
+                        this.tabControl1.SelectedIndex = 0;
+                        dateBegin[i].Focus();
+                        return false;
+                    }
+                    else
+                    {
+                        GlobalVars.showWarningMsgBox(this, "Укажите корректное время");
+                        this.tabControl1.SelectedIndex = 0;
+                        dateEnd[i].Focus();
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        
         /// <summary>
         /// Проверяет данные о родителях на пустоту
         /// </summary>
@@ -723,98 +849,9 @@ namespace Lab3.List
                 GlobalVars.connection.insertSheduleVisit(babyId, convertData(this.dtBegin.Value.Date), convertData(this.dtEnd.Value.Date));
                 int shedulevisitId = GlobalVars.connection.getMaxSheduleVisitId();
 
-                TimeSpan nullTime = new DateTime(1, 1, 1, 0, 0, 0).TimeOfDay;
+                //Сохраняем строки графика
+                insertSheduleVisitString(shedulevisitId, babyId);
 
-                if (this.dtBegin1.Value.TimeOfDay != nullTime && this.dtEnd1.Value.TimeOfDay != nullTime)
-                {
-                    GlobalVars.connection.insertSheduleVisitString(
-                        shedulevisitId,
-                        1,
-                        Convert.ToInt32(this.cbEatDay1.Checked),
-                        Convert.ToInt32(this.cbEatEvening1.Checked),
-                        this.dtBegin1.Value.TimeOfDay.ToString(),
-                        this.dtEnd1.Value.TimeOfDay.ToString(),
-                        babyId
-                        );
-                }
-
-                if (this.dtBegin2.Value.TimeOfDay != nullTime && this.dtEnd2.Value.TimeOfDay != nullTime)
-                {
-                    GlobalVars.connection.insertSheduleVisitString(
-                        shedulevisitId,
-                        2,
-                        Convert.ToInt32(this.cbEatDay2.Checked),
-                        Convert.ToInt32(this.cbEatEvening2.Checked),
-                        this.dtBegin2.Value.TimeOfDay.ToString(),
-                        this.dtEnd2.Value.TimeOfDay.ToString(),
-                        babyId
-                        );
-                }
-
-                if (this.dtBegin3.Value.TimeOfDay != nullTime && this.dtEnd3.Value.TimeOfDay != nullTime)
-                {
-                    GlobalVars.connection.insertSheduleVisitString(
-                        shedulevisitId,
-                        3,
-                        Convert.ToInt32(this.cbEatDay3.Checked),
-                        Convert.ToInt32(this.cbEatEvening3.Checked),
-                        this.dtBegin3.Value.TimeOfDay.ToString(),
-                        this.dtEnd3.Value.TimeOfDay.ToString(),
-                        babyId
-                        );
-                }
-
-                if (this.dtBegin4.Value.TimeOfDay != nullTime && this.dtEnd4.Value.TimeOfDay != nullTime)
-                {
-                    GlobalVars.connection.insertSheduleVisitString(
-                        shedulevisitId,
-                        4,
-                        Convert.ToInt32(this.cbEatDay4.Checked),
-                        Convert.ToInt32(this.cbEatEvening4.Checked),
-                        this.dtBegin4.Value.TimeOfDay.ToString(),
-                        this.dtEnd4.Value.TimeOfDay.ToString(),
-                        babyId
-                        );
-                }
-
-                if (this.dtBegin5.Value.TimeOfDay != nullTime && this.dtEnd5.Value.TimeOfDay != nullTime)
-                {
-                    GlobalVars.connection.insertSheduleVisitString(
-                        shedulevisitId,
-                        5,
-                        Convert.ToInt32(this.cbEatDay5.Checked),
-                        Convert.ToInt32(this.cbEatEvening5.Checked),
-                        this.dtBegin5.Value.TimeOfDay.ToString(),
-                        this.dtEnd5.Value.TimeOfDay.ToString(),
-                        babyId
-                        );
-                }
-
-                if (this.dtBegin6.Value.TimeOfDay != nullTime && this.dtEnd6.Value.TimeOfDay != nullTime)
-                {
-                    GlobalVars.connection.insertSheduleVisitString(
-                        shedulevisitId,
-                        6,
-                        Convert.ToInt32(this.cbEatDay6.Checked),
-                        Convert.ToInt32(this.cbEatEvening6.Checked),
-                        this.dtBegin6.Value.TimeOfDay.ToString(),
-                        this.dtEnd6.Value.TimeOfDay.ToString(),
-                        babyId
-                        );
-                }
-
-                if (this.dtBegin7.Value.TimeOfDay != nullTime && this.dtEnd7.Value.TimeOfDay != nullTime)
-                {
-                    GlobalVars.connection.insertSheduleVisitString(
-                        shedulevisitId,
-                        7,
-                        Convert.ToInt32(this.cbEatDay7.Checked),
-                        Convert.ToInt32(this.cbEatEvening7.Checked),
-                        this.dtBegin7.Value.TimeOfDay.ToString(),
-                        this.dtEnd7.Value.TimeOfDay.ToString(),
-                        babyId
-                        );
-                }
 
 
                 //Сохраняем инфу о родителях
@@ -977,14 +1014,15 @@ namespace Lab3.List
         private void insertSheduleVisitString(int shedulevisitId, int babyId)
         {
             TimeSpan nullTime = new DateTime(1, 1, 1, 0, 0, 0).TimeOfDay;
-
             if (this.dtBegin1.Value.TimeOfDay != nullTime && this.dtEnd1.Value.TimeOfDay != nullTime)
             {
                 GlobalVars.connection.insertSheduleVisitString(
                     shedulevisitId,
                     1,
-                    Convert.ToInt32(this.cbEatDay1.Checked),
-                    Convert.ToInt32(this.cbEatEvening1.Checked),
+                    Convert.ToInt32(this.cbBreakfast1.Checked),
+                    Convert.ToInt32(this.cbSnack1.Checked),
+                    Convert.ToInt32(this.cbLunch1.Checked),
+                    Convert.ToInt32(this.cbDinner1.Checked),
                     this.dtBegin1.Value.TimeOfDay.ToString(),
                     this.dtEnd1.Value.TimeOfDay.ToString(),
                     babyId
@@ -996,8 +1034,10 @@ namespace Lab3.List
                 GlobalVars.connection.insertSheduleVisitString(
                     shedulevisitId,
                     2,
-                    Convert.ToInt32(this.cbEatDay2.Checked),
-                    Convert.ToInt32(this.cbEatEvening2.Checked),
+                    Convert.ToInt32(this.cbBreakfast2.Checked),
+                    Convert.ToInt32(this.cbSnack2.Checked),
+                    Convert.ToInt32(this.cbLunch2.Checked),
+                    Convert.ToInt32(this.cbDinner2.Checked),
                     this.dtBegin2.Value.TimeOfDay.ToString(),
                     this.dtEnd2.Value.TimeOfDay.ToString(),
                     babyId
@@ -1009,8 +1049,10 @@ namespace Lab3.List
                 GlobalVars.connection.insertSheduleVisitString(
                     shedulevisitId,
                     3,
-                    Convert.ToInt32(this.cbEatDay3.Checked),
-                    Convert.ToInt32(this.cbEatEvening3.Checked),
+                    Convert.ToInt32(this.cbBreakfast3.Checked),
+                    Convert.ToInt32(this.cbSnack3.Checked),
+                    Convert.ToInt32(this.cbLunch3.Checked),
+                    Convert.ToInt32(this.cbDinner3.Checked),
                     this.dtBegin3.Value.TimeOfDay.ToString(),
                     this.dtEnd3.Value.TimeOfDay.ToString(),
                     babyId
@@ -1022,8 +1064,10 @@ namespace Lab3.List
                 GlobalVars.connection.insertSheduleVisitString(
                     shedulevisitId,
                     4,
-                    Convert.ToInt32(this.cbEatDay4.Checked),
-                    Convert.ToInt32(this.cbEatEvening4.Checked),
+                    Convert.ToInt32(this.cbBreakfast4.Checked),
+                    Convert.ToInt32(this.cbSnack4.Checked),
+                    Convert.ToInt32(this.cbLunch4.Checked),
+                    Convert.ToInt32(this.cbDinner4.Checked),
                     this.dtBegin4.Value.TimeOfDay.ToString(),
                     this.dtEnd4.Value.TimeOfDay.ToString(),
                     babyId
@@ -1035,8 +1079,10 @@ namespace Lab3.List
                 GlobalVars.connection.insertSheduleVisitString(
                     shedulevisitId,
                     5,
-                    Convert.ToInt32(this.cbEatDay5.Checked),
-                    Convert.ToInt32(this.cbEatEvening5.Checked),
+                    Convert.ToInt32(this.cbBreakfast5.Checked),
+                    Convert.ToInt32(this.cbSnack5.Checked),
+                    Convert.ToInt32(this.cbLunch5.Checked),
+                    Convert.ToInt32(this.cbDinner5.Checked),
                     this.dtBegin5.Value.TimeOfDay.ToString(),
                     this.dtEnd5.Value.TimeOfDay.ToString(),
                     babyId
@@ -1048,8 +1094,10 @@ namespace Lab3.List
                 GlobalVars.connection.insertSheduleVisitString(
                     shedulevisitId,
                     6,
-                    Convert.ToInt32(this.cbEatDay6.Checked),
-                    Convert.ToInt32(this.cbEatEvening6.Checked),
+                    Convert.ToInt32(this.cbBreakfast6.Checked),
+                    Convert.ToInt32(this.cbSnack6.Checked),
+                    Convert.ToInt32(this.cbLunch6.Checked),
+                    Convert.ToInt32(this.cbDinner6.Checked),
                     this.dtBegin6.Value.TimeOfDay.ToString(),
                     this.dtEnd6.Value.TimeOfDay.ToString(),
                     babyId
@@ -1061,8 +1109,10 @@ namespace Lab3.List
                 GlobalVars.connection.insertSheduleVisitString(
                     shedulevisitId,
                     7,
-                    Convert.ToInt32(this.cbEatDay7.Checked),
-                    Convert.ToInt32(this.cbEatEvening7.Checked),
+                    Convert.ToInt32(this.cbBreakfast7.Checked),
+                    Convert.ToInt32(this.cbSnack7.Checked),
+                    Convert.ToInt32(this.cbLunch7.Checked),
+                    Convert.ToInt32(this.cbDinner7.Checked),
                     this.dtBegin7.Value.TimeOfDay.ToString(),
                     this.dtEnd7.Value.TimeOfDay.ToString(),
                     babyId

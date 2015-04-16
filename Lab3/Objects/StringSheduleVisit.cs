@@ -17,14 +17,24 @@ namespace Lab3.Objects
         public int id { get; set; }
 
         /// <summary>
-        /// Питанрие утром
+        /// Завтрак
         /// </summary>
-        public int eatMorning { get; set; }
+        public int eatBreakfast { get; set; }
 
         /// <summary>
-        /// Питание вечером
+        /// Полдник
         /// </summary>
-        public int eatEvening { get; set; }
+        public int eatSnack { get; set; }
+
+        /// <summary>
+        /// Обед
+        /// </summary>
+        public int eatLunch { get; set; }
+
+        /// <summary>
+        /// Завтрак
+        /// </summary>
+        public int eatDinner { get; set; }
 
         /// <summary>
         /// Время прихода

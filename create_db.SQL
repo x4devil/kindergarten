@@ -163,8 +163,10 @@ create index ix_relationship42 on eating (nutrition_type_id)
 create table string_shedulevisit
 (
   string_id int not null auto_increment,
-  eating_morning bool not null,
-  eating_evening bool not null,
+  eat_breakfast bool not null,
+  eat_snack bool not null,
+  eat_lunch bool not null,
+  eat_dinner bool not null,
   time_begin time not null,
   time_end time not null,
   dayweek_id int,

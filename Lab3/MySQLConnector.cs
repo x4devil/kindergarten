@@ -579,7 +579,7 @@ namespace Lab3
         /// <returns>Строки графика посещения или null если информация не найдена</returns>
         public List<StringSheduleVisit> getStringSheduleVisit(int babyId)
         {
-            String sql = String.Format("select string_id, eating_morning, eating_evening, time_begin, time_end, dayweek_id from string_shedulevisit where baby_id = {0}", babyId);
+            String sql = String.Format("select string_id, eat_breakfast, eat_snack, eat_lunch, eat_dinner, time_begin, time_end, dayweek_id from string_shedulevisit where baby_id = {0}", babyId);
             DataTable table = select(sql);
             if (table != null && table.Rows.Count > 0)
             {
@@ -589,11 +589,15 @@ namespace Lab3
                 {
                     StringSheduleVisit str = new StringSheduleVisit();
                     str.id = Convert.ToInt32(table.Rows[i][0]);
-                    str.eatMorning = Convert.ToInt32(table.Rows[i][1]);
-                    str.eatEvening = Convert.ToInt32(table.Rows[i][2]);
-                    str.timeBegin = convertTimeToDateTime(table.Rows[i][3].ToString());
-                    str.timeEnd = convertTimeToDateTime(table.Rows[i][4].ToString());
-                    str.dayWeekId = Convert.ToInt32(table.Rows[i][5]);
+                    
+                    str.eatBreakfast = Convert.ToInt32(table.Rows[i][1]);
+                    str.eatSnack = Convert.ToInt32(table.Rows[i][2]);
+                    str.eatLunch = Convert.ToInt32(table.Rows[i][3]);
+                    str.eatDinner = Convert.ToInt32(table.Rows[i][4]);
+
+                    str.timeBegin = convertTimeToDateTime(table.Rows[i][5].ToString());
+                    str.timeEnd = convertTimeToDateTime(table.Rows[i][6].ToString());
+                    str.dayWeekId = Convert.ToInt32(table.Rows[i][7]);
 
                     result.Add(str);
                 }
@@ -765,6 +769,7 @@ namespace Lab3
                 return 0;
             }
         }
+
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -888,11 +893,11 @@ namespace Lab3
         /// <param name="timeEnd">Время ухода</param>
         /// <param name="babyId">ИД ребенка</param>
         /// <returns>true если операция выполнена успешно иначе false</returns>
-        public bool insertSheduleVisitString(int shedulevisitId, int dayWeekId, int eatMorning, int eatEvening, String timeBegin, String timeEnd, int babyId)
+        public bool insertSheduleVisitString(int shedulevisitId, int dayWeekId, int eatBreakfast, int eatSnack, int eatLunch, int eatDinner, String timeBegin, String timeEnd, int babyId)
         {
-            String sql = String.Format("insert into string_shedulevisit (shedulevisit_id, dayweek_id, eating_morning, eating_evening, time_begin, time_end, baby_id) " +
-                " values({0}, {1}, {2}, {3}, '{4}', '{5}', {6})",
-                shedulevisitId, dayWeekId, eatMorning, eatEvening, timeBegin, timeEnd, babyId);
+            String sql = String.Format("insert into string_shedulevisit (shedulevisit_id, dayweek_id, eat_breakfast, eat_snack, eat_lunch, eat_dinner, time_begin, time_end, baby_id) " +
+                " values({0}, {1}, {2}, {3}, {4}, {5}, '{6}', '{7}', {8})",
+                shedulevisitId, dayWeekId, eatBreakfast, eatSnack, eatLunch, eatDinner, timeBegin, timeEnd, babyId);
             return execute(sql);
         }
 

@@ -36,36 +36,36 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dtBabyBirthday = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbDinner7 = new System.Windows.Forms.CheckBox();
+            this.cbDinner6 = new System.Windows.Forms.CheckBox();
+            this.cbDinner5 = new System.Windows.Forms.CheckBox();
+            this.cbDinner4 = new System.Windows.Forms.CheckBox();
+            this.cbDinner3 = new System.Windows.Forms.CheckBox();
+            this.cbDinner2 = new System.Windows.Forms.CheckBox();
+            this.cbDinner1 = new System.Windows.Forms.CheckBox();
+            this.cbLunch7 = new System.Windows.Forms.CheckBox();
+            this.cbLunch6 = new System.Windows.Forms.CheckBox();
+            this.cbLunch5 = new System.Windows.Forms.CheckBox();
+            this.cbLunch4 = new System.Windows.Forms.CheckBox();
+            this.cbLunch3 = new System.Windows.Forms.CheckBox();
+            this.cbLunch2 = new System.Windows.Forms.CheckBox();
+            this.cbLunch1 = new System.Windows.Forms.CheckBox();
+            this.cbSnack7 = new System.Windows.Forms.CheckBox();
+            this.cbSnack6 = new System.Windows.Forms.CheckBox();
+            this.cbSnack5 = new System.Windows.Forms.CheckBox();
+            this.cbSnack4 = new System.Windows.Forms.CheckBox();
+            this.cbSnack3 = new System.Windows.Forms.CheckBox();
+            this.cbSnack2 = new System.Windows.Forms.CheckBox();
+            this.cbSnack1 = new System.Windows.Forms.CheckBox();
+            this.cbBreakfast7 = new System.Windows.Forms.CheckBox();
+            this.cbBreakfast6 = new System.Windows.Forms.CheckBox();
+            this.cbBreakfast5 = new System.Windows.Forms.CheckBox();
+            this.cbBreakfast4 = new System.Windows.Forms.CheckBox();
+            this.cbBreakfast3 = new System.Windows.Forms.CheckBox();
+            this.cbBreakfast2 = new System.Windows.Forms.CheckBox();
+            this.cbBreakfast1 = new System.Windows.Forms.CheckBox();
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.dtBegin = new System.Windows.Forms.DateTimePicker();
-            this.cbEatEvening7 = new System.Windows.Forms.CheckBox();
-            this.cbEatEvening6 = new System.Windows.Forms.CheckBox();
-            this.cbEatEvening5 = new System.Windows.Forms.CheckBox();
-            this.cbEatEvening4 = new System.Windows.Forms.CheckBox();
-            this.cbEatEvening3 = new System.Windows.Forms.CheckBox();
-            this.cbEatEvening2 = new System.Windows.Forms.CheckBox();
-            this.cbEatEvening1 = new System.Windows.Forms.CheckBox();
-            this.cbEatDay7 = new System.Windows.Forms.CheckBox();
-            this.cbEatDay6 = new System.Windows.Forms.CheckBox();
-            this.cbEatDay5 = new System.Windows.Forms.CheckBox();
-            this.cbEatDay4 = new System.Windows.Forms.CheckBox();
-            this.cbEatDay3 = new System.Windows.Forms.CheckBox();
-            this.cbEatDay2 = new System.Windows.Forms.CheckBox();
-            this.cbEatDay1 = new System.Windows.Forms.CheckBox();
-            this.dtEnd7 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd6 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd5 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd4 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd3 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd2 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd1 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin7 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin6 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin5 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin4 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin3 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin2 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin1 = new System.Windows.Forms.DateTimePicker();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -131,6 +131,25 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtBegin1 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd1 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin2 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd2 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin3 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd3 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin4 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd4 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin5 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd5 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin6 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd6 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin7 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd7 = new System.Windows.Forms.DateTimePicker();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -142,6 +161,7 @@
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTrustee)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -151,12 +171,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 295);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(812, 29);
+            this.panel1.Size = new System.Drawing.Size(784, 29);
             this.panel1.TabIndex = 50;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(649, 3);
+            this.btnCancel.Location = new System.Drawing.Point(618, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 50;
@@ -166,7 +186,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(730, 3);
+            this.btnSave.Location = new System.Drawing.Point(699, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 51;
@@ -180,7 +200,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(812, 295);
+            this.panel2.Size = new System.Drawing.Size(784, 295);
             this.panel2.TabIndex = 1;
             // 
             // tabControl1
@@ -192,7 +212,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(812, 295);
+            this.tabControl1.Size = new System.Drawing.Size(784, 295);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -212,7 +232,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(804, 269);
+            this.tabPage1.Size = new System.Drawing.Size(776, 269);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ребенок";
             // 
@@ -225,36 +245,51 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox5);
+            this.groupBox2.Controls.Add(this.dtEnd7);
+            this.groupBox2.Controls.Add(this.dtBegin7);
+            this.groupBox2.Controls.Add(this.dtEnd6);
+            this.groupBox2.Controls.Add(this.dtBegin6);
+            this.groupBox2.Controls.Add(this.dtEnd5);
+            this.groupBox2.Controls.Add(this.dtBegin5);
+            this.groupBox2.Controls.Add(this.dtEnd4);
+            this.groupBox2.Controls.Add(this.dtBegin4);
+            this.groupBox2.Controls.Add(this.dtEnd3);
+            this.groupBox2.Controls.Add(this.dtBegin3);
+            this.groupBox2.Controls.Add(this.dtEnd2);
+            this.groupBox2.Controls.Add(this.dtBegin2);
+            this.groupBox2.Controls.Add(this.dtEnd1);
+            this.groupBox2.Controls.Add(this.dtBegin1);
+            this.groupBox2.Controls.Add(this.cbDinner7);
+            this.groupBox2.Controls.Add(this.cbDinner6);
+            this.groupBox2.Controls.Add(this.cbDinner5);
+            this.groupBox2.Controls.Add(this.cbDinner4);
+            this.groupBox2.Controls.Add(this.cbDinner3);
+            this.groupBox2.Controls.Add(this.cbDinner2);
+            this.groupBox2.Controls.Add(this.cbDinner1);
+            this.groupBox2.Controls.Add(this.cbLunch7);
+            this.groupBox2.Controls.Add(this.cbLunch6);
+            this.groupBox2.Controls.Add(this.cbLunch5);
+            this.groupBox2.Controls.Add(this.cbLunch4);
+            this.groupBox2.Controls.Add(this.cbLunch3);
+            this.groupBox2.Controls.Add(this.cbLunch2);
+            this.groupBox2.Controls.Add(this.cbLunch1);
+            this.groupBox2.Controls.Add(this.cbSnack7);
+            this.groupBox2.Controls.Add(this.cbSnack6);
+            this.groupBox2.Controls.Add(this.cbSnack5);
+            this.groupBox2.Controls.Add(this.cbSnack4);
+            this.groupBox2.Controls.Add(this.cbSnack3);
+            this.groupBox2.Controls.Add(this.cbSnack2);
+            this.groupBox2.Controls.Add(this.cbSnack1);
+            this.groupBox2.Controls.Add(this.cbBreakfast7);
+            this.groupBox2.Controls.Add(this.cbBreakfast6);
+            this.groupBox2.Controls.Add(this.cbBreakfast5);
+            this.groupBox2.Controls.Add(this.cbBreakfast4);
+            this.groupBox2.Controls.Add(this.cbBreakfast3);
+            this.groupBox2.Controls.Add(this.cbBreakfast2);
+            this.groupBox2.Controls.Add(this.cbBreakfast1);
             this.groupBox2.Controls.Add(this.dtEnd);
             this.groupBox2.Controls.Add(this.dtBegin);
-            this.groupBox2.Controls.Add(this.cbEatEvening7);
-            this.groupBox2.Controls.Add(this.cbEatEvening6);
-            this.groupBox2.Controls.Add(this.cbEatEvening5);
-            this.groupBox2.Controls.Add(this.cbEatEvening4);
-            this.groupBox2.Controls.Add(this.cbEatEvening3);
-            this.groupBox2.Controls.Add(this.cbEatEvening2);
-            this.groupBox2.Controls.Add(this.cbEatEvening1);
-            this.groupBox2.Controls.Add(this.cbEatDay7);
-            this.groupBox2.Controls.Add(this.cbEatDay6);
-            this.groupBox2.Controls.Add(this.cbEatDay5);
-            this.groupBox2.Controls.Add(this.cbEatDay4);
-            this.groupBox2.Controls.Add(this.cbEatDay3);
-            this.groupBox2.Controls.Add(this.cbEatDay2);
-            this.groupBox2.Controls.Add(this.cbEatDay1);
-            this.groupBox2.Controls.Add(this.dtEnd7);
-            this.groupBox2.Controls.Add(this.dtEnd6);
-            this.groupBox2.Controls.Add(this.dtEnd5);
-            this.groupBox2.Controls.Add(this.dtEnd4);
-            this.groupBox2.Controls.Add(this.dtEnd3);
-            this.groupBox2.Controls.Add(this.dtEnd2);
-            this.groupBox2.Controls.Add(this.dtEnd1);
-            this.groupBox2.Controls.Add(this.dtBegin7);
-            this.groupBox2.Controls.Add(this.dtBegin6);
-            this.groupBox2.Controls.Add(this.dtBegin5);
-            this.groupBox2.Controls.Add(this.dtBegin4);
-            this.groupBox2.Controls.Add(this.dtBegin3);
-            this.groupBox2.Controls.Add(this.dtBegin2);
-            this.groupBox2.Controls.Add(this.dtBegin1);
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.label30);
             this.groupBox2.Controls.Add(this.label15);
@@ -266,304 +301,318 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Location = new System.Drawing.Point(277, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(522, 258);
+            this.groupBox2.Size = new System.Drawing.Size(493, 258);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Планируемый график посещения";
             // 
+            // cbDinner7
+            // 
+            this.cbDinner7.AutoSize = true;
+            this.cbDinner7.Location = new System.Drawing.Point(440, 180);
+            this.cbDinner7.Name = "cbDinner7";
+            this.cbDinner7.Size = new System.Drawing.Size(53, 17);
+            this.cbDinner7.TabIndex = 50;
+            this.cbDinner7.Text = "Ужин";
+            this.cbDinner7.UseVisualStyleBackColor = true;
+            // 
+            // cbDinner6
+            // 
+            this.cbDinner6.AutoSize = true;
+            this.cbDinner6.Location = new System.Drawing.Point(440, 154);
+            this.cbDinner6.Name = "cbDinner6";
+            this.cbDinner6.Size = new System.Drawing.Size(53, 17);
+            this.cbDinner6.TabIndex = 44;
+            this.cbDinner6.Text = "Ужин";
+            this.cbDinner6.UseVisualStyleBackColor = true;
+            // 
+            // cbDinner5
+            // 
+            this.cbDinner5.AutoSize = true;
+            this.cbDinner5.Location = new System.Drawing.Point(440, 125);
+            this.cbDinner5.Name = "cbDinner5";
+            this.cbDinner5.Size = new System.Drawing.Size(53, 17);
+            this.cbDinner5.TabIndex = 38;
+            this.cbDinner5.Text = "Ужин";
+            this.cbDinner5.UseVisualStyleBackColor = true;
+            // 
+            // cbDinner4
+            // 
+            this.cbDinner4.AutoSize = true;
+            this.cbDinner4.Location = new System.Drawing.Point(440, 98);
+            this.cbDinner4.Name = "cbDinner4";
+            this.cbDinner4.Size = new System.Drawing.Size(53, 17);
+            this.cbDinner4.TabIndex = 32;
+            this.cbDinner4.Text = "Ужин";
+            this.cbDinner4.UseVisualStyleBackColor = true;
+            // 
+            // cbDinner3
+            // 
+            this.cbDinner3.AutoSize = true;
+            this.cbDinner3.Location = new System.Drawing.Point(440, 71);
+            this.cbDinner3.Name = "cbDinner3";
+            this.cbDinner3.Size = new System.Drawing.Size(53, 17);
+            this.cbDinner3.TabIndex = 26;
+            this.cbDinner3.Text = "Ужин";
+            this.cbDinner3.UseVisualStyleBackColor = true;
+            // 
+            // cbDinner2
+            // 
+            this.cbDinner2.AutoSize = true;
+            this.cbDinner2.Location = new System.Drawing.Point(440, 44);
+            this.cbDinner2.Name = "cbDinner2";
+            this.cbDinner2.Size = new System.Drawing.Size(53, 17);
+            this.cbDinner2.TabIndex = 20;
+            this.cbDinner2.Text = "Ужин";
+            this.cbDinner2.UseVisualStyleBackColor = true;
+            // 
+            // cbDinner1
+            // 
+            this.cbDinner1.AutoSize = true;
+            this.cbDinner1.Location = new System.Drawing.Point(440, 17);
+            this.cbDinner1.Name = "cbDinner1";
+            this.cbDinner1.Size = new System.Drawing.Size(53, 17);
+            this.cbDinner1.TabIndex = 14;
+            this.cbDinner1.Text = "Ужин";
+            this.cbDinner1.UseVisualStyleBackColor = true;
+            // 
+            // cbLunch7
+            // 
+            this.cbLunch7.AutoSize = true;
+            this.cbLunch7.Location = new System.Drawing.Point(383, 180);
+            this.cbLunch7.Name = "cbLunch7";
+            this.cbLunch7.Size = new System.Drawing.Size(53, 17);
+            this.cbLunch7.TabIndex = 49;
+            this.cbLunch7.Text = "Обед";
+            this.cbLunch7.UseVisualStyleBackColor = true;
+            // 
+            // cbLunch6
+            // 
+            this.cbLunch6.AutoSize = true;
+            this.cbLunch6.Location = new System.Drawing.Point(383, 154);
+            this.cbLunch6.Name = "cbLunch6";
+            this.cbLunch6.Size = new System.Drawing.Size(53, 17);
+            this.cbLunch6.TabIndex = 43;
+            this.cbLunch6.Text = "Обед";
+            this.cbLunch6.UseVisualStyleBackColor = true;
+            // 
+            // cbLunch5
+            // 
+            this.cbLunch5.AutoSize = true;
+            this.cbLunch5.Location = new System.Drawing.Point(383, 125);
+            this.cbLunch5.Name = "cbLunch5";
+            this.cbLunch5.Size = new System.Drawing.Size(53, 17);
+            this.cbLunch5.TabIndex = 37;
+            this.cbLunch5.Text = "Обед";
+            this.cbLunch5.UseVisualStyleBackColor = true;
+            // 
+            // cbLunch4
+            // 
+            this.cbLunch4.AutoSize = true;
+            this.cbLunch4.Location = new System.Drawing.Point(383, 98);
+            this.cbLunch4.Name = "cbLunch4";
+            this.cbLunch4.Size = new System.Drawing.Size(53, 17);
+            this.cbLunch4.TabIndex = 31;
+            this.cbLunch4.Text = "Обед";
+            this.cbLunch4.UseVisualStyleBackColor = true;
+            // 
+            // cbLunch3
+            // 
+            this.cbLunch3.AutoSize = true;
+            this.cbLunch3.Location = new System.Drawing.Point(383, 71);
+            this.cbLunch3.Name = "cbLunch3";
+            this.cbLunch3.Size = new System.Drawing.Size(53, 17);
+            this.cbLunch3.TabIndex = 25;
+            this.cbLunch3.Text = "Обед";
+            this.cbLunch3.UseVisualStyleBackColor = true;
+            // 
+            // cbLunch2
+            // 
+            this.cbLunch2.AutoSize = true;
+            this.cbLunch2.Location = new System.Drawing.Point(383, 44);
+            this.cbLunch2.Name = "cbLunch2";
+            this.cbLunch2.Size = new System.Drawing.Size(53, 17);
+            this.cbLunch2.TabIndex = 19;
+            this.cbLunch2.Text = "Обед";
+            this.cbLunch2.UseVisualStyleBackColor = true;
+            // 
+            // cbLunch1
+            // 
+            this.cbLunch1.AutoSize = true;
+            this.cbLunch1.Location = new System.Drawing.Point(383, 17);
+            this.cbLunch1.Name = "cbLunch1";
+            this.cbLunch1.Size = new System.Drawing.Size(53, 17);
+            this.cbLunch1.TabIndex = 13;
+            this.cbLunch1.Text = "Обед";
+            this.cbLunch1.UseVisualStyleBackColor = true;
+            // 
+            // cbSnack7
+            // 
+            this.cbSnack7.AutoSize = true;
+            this.cbSnack7.Location = new System.Drawing.Point(312, 180);
+            this.cbSnack7.Name = "cbSnack7";
+            this.cbSnack7.Size = new System.Drawing.Size(70, 17);
+            this.cbSnack7.TabIndex = 48;
+            this.cbSnack7.Text = "Полдник";
+            this.cbSnack7.UseVisualStyleBackColor = true;
+            // 
+            // cbSnack6
+            // 
+            this.cbSnack6.AutoSize = true;
+            this.cbSnack6.Location = new System.Drawing.Point(312, 154);
+            this.cbSnack6.Name = "cbSnack6";
+            this.cbSnack6.Size = new System.Drawing.Size(70, 17);
+            this.cbSnack6.TabIndex = 42;
+            this.cbSnack6.Text = "Полдник";
+            this.cbSnack6.UseVisualStyleBackColor = true;
+            // 
+            // cbSnack5
+            // 
+            this.cbSnack5.AutoSize = true;
+            this.cbSnack5.Location = new System.Drawing.Point(312, 125);
+            this.cbSnack5.Name = "cbSnack5";
+            this.cbSnack5.Size = new System.Drawing.Size(70, 17);
+            this.cbSnack5.TabIndex = 36;
+            this.cbSnack5.Text = "Полдник";
+            this.cbSnack5.UseVisualStyleBackColor = true;
+            // 
+            // cbSnack4
+            // 
+            this.cbSnack4.AutoSize = true;
+            this.cbSnack4.Location = new System.Drawing.Point(312, 98);
+            this.cbSnack4.Name = "cbSnack4";
+            this.cbSnack4.Size = new System.Drawing.Size(70, 17);
+            this.cbSnack4.TabIndex = 30;
+            this.cbSnack4.Text = "Полдник";
+            this.cbSnack4.UseVisualStyleBackColor = true;
+            // 
+            // cbSnack3
+            // 
+            this.cbSnack3.AutoSize = true;
+            this.cbSnack3.Location = new System.Drawing.Point(312, 71);
+            this.cbSnack3.Name = "cbSnack3";
+            this.cbSnack3.Size = new System.Drawing.Size(70, 17);
+            this.cbSnack3.TabIndex = 24;
+            this.cbSnack3.Text = "Полдник";
+            this.cbSnack3.UseVisualStyleBackColor = true;
+            // 
+            // cbSnack2
+            // 
+            this.cbSnack2.AutoSize = true;
+            this.cbSnack2.Location = new System.Drawing.Point(312, 44);
+            this.cbSnack2.Name = "cbSnack2";
+            this.cbSnack2.Size = new System.Drawing.Size(70, 17);
+            this.cbSnack2.TabIndex = 18;
+            this.cbSnack2.Text = "Полдник";
+            this.cbSnack2.UseVisualStyleBackColor = true;
+            // 
+            // cbSnack1
+            // 
+            this.cbSnack1.AutoSize = true;
+            this.cbSnack1.Location = new System.Drawing.Point(312, 17);
+            this.cbSnack1.Name = "cbSnack1";
+            this.cbSnack1.Size = new System.Drawing.Size(70, 17);
+            this.cbSnack1.TabIndex = 12;
+            this.cbSnack1.Text = "Полдник";
+            this.cbSnack1.UseVisualStyleBackColor = true;
+            // 
+            // cbBreakfast7
+            // 
+            this.cbBreakfast7.AutoSize = true;
+            this.cbBreakfast7.Location = new System.Drawing.Point(238, 180);
+            this.cbBreakfast7.Name = "cbBreakfast7";
+            this.cbBreakfast7.Size = new System.Drawing.Size(68, 17);
+            this.cbBreakfast7.TabIndex = 47;
+            this.cbBreakfast7.Text = "Завтрак";
+            this.cbBreakfast7.UseVisualStyleBackColor = true;
+            // 
+            // cbBreakfast6
+            // 
+            this.cbBreakfast6.AutoSize = true;
+            this.cbBreakfast6.Location = new System.Drawing.Point(238, 154);
+            this.cbBreakfast6.Name = "cbBreakfast6";
+            this.cbBreakfast6.Size = new System.Drawing.Size(68, 17);
+            this.cbBreakfast6.TabIndex = 41;
+            this.cbBreakfast6.Text = "Завтрак";
+            this.cbBreakfast6.UseVisualStyleBackColor = true;
+            // 
+            // cbBreakfast5
+            // 
+            this.cbBreakfast5.AutoSize = true;
+            this.cbBreakfast5.Location = new System.Drawing.Point(238, 125);
+            this.cbBreakfast5.Name = "cbBreakfast5";
+            this.cbBreakfast5.Size = new System.Drawing.Size(68, 17);
+            this.cbBreakfast5.TabIndex = 35;
+            this.cbBreakfast5.Text = "Завтрак";
+            this.cbBreakfast5.UseVisualStyleBackColor = true;
+            // 
+            // cbBreakfast4
+            // 
+            this.cbBreakfast4.AutoSize = true;
+            this.cbBreakfast4.Location = new System.Drawing.Point(238, 98);
+            this.cbBreakfast4.Name = "cbBreakfast4";
+            this.cbBreakfast4.Size = new System.Drawing.Size(68, 17);
+            this.cbBreakfast4.TabIndex = 29;
+            this.cbBreakfast4.Text = "Завтрак";
+            this.cbBreakfast4.UseVisualStyleBackColor = true;
+            // 
+            // cbBreakfast3
+            // 
+            this.cbBreakfast3.AutoSize = true;
+            this.cbBreakfast3.Location = new System.Drawing.Point(238, 71);
+            this.cbBreakfast3.Name = "cbBreakfast3";
+            this.cbBreakfast3.Size = new System.Drawing.Size(68, 17);
+            this.cbBreakfast3.TabIndex = 23;
+            this.cbBreakfast3.Text = "Завтрак";
+            this.cbBreakfast3.UseVisualStyleBackColor = true;
+            // 
+            // cbBreakfast2
+            // 
+            this.cbBreakfast2.AutoSize = true;
+            this.cbBreakfast2.Location = new System.Drawing.Point(238, 44);
+            this.cbBreakfast2.Name = "cbBreakfast2";
+            this.cbBreakfast2.Size = new System.Drawing.Size(68, 17);
+            this.cbBreakfast2.TabIndex = 17;
+            this.cbBreakfast2.Text = "Завтрак";
+            this.cbBreakfast2.UseVisualStyleBackColor = true;
+            // 
+            // cbBreakfast1
+            // 
+            this.cbBreakfast1.AutoSize = true;
+            this.cbBreakfast1.Location = new System.Drawing.Point(238, 17);
+            this.cbBreakfast1.Name = "cbBreakfast1";
+            this.cbBreakfast1.Size = new System.Drawing.Size(68, 17);
+            this.cbBreakfast1.TabIndex = 11;
+            this.cbBreakfast1.Text = "Завтрак";
+            this.cbBreakfast1.UseVisualStyleBackColor = true;
+            // 
             // dtEnd
             // 
-            this.dtEnd.Location = new System.Drawing.Point(135, 231);
+            this.dtEnd.Location = new System.Drawing.Point(90, 229);
             this.dtEnd.Name = "dtEnd";
-            this.dtEnd.Size = new System.Drawing.Size(160, 21);
+            this.dtEnd.Size = new System.Drawing.Size(142, 21);
             this.dtEnd.TabIndex = 38;
             // 
             // dtBegin
             // 
-            this.dtBegin.Location = new System.Drawing.Point(135, 204);
+            this.dtBegin.Location = new System.Drawing.Point(90, 202);
             this.dtBegin.Name = "dtBegin";
-            this.dtBegin.Size = new System.Drawing.Size(160, 21);
+            this.dtBegin.Size = new System.Drawing.Size(142, 21);
             this.dtBegin.TabIndex = 37;
-            // 
-            // cbEatEvening7
-            // 
-            this.cbEatEvening7.AutoSize = true;
-            this.cbEatEvening7.Location = new System.Drawing.Point(414, 177);
-            this.cbEatEvening7.Name = "cbEatEvening7";
-            this.cbEatEvening7.Size = new System.Drawing.Size(102, 17);
-            this.cbEatEvening7.TabIndex = 36;
-            this.cbEatEvening7.Text = "Питание(уход)";
-            this.cbEatEvening7.UseVisualStyleBackColor = true;
-            // 
-            // cbEatEvening6
-            // 
-            this.cbEatEvening6.AutoSize = true;
-            this.cbEatEvening6.Location = new System.Drawing.Point(414, 150);
-            this.cbEatEvening6.Name = "cbEatEvening6";
-            this.cbEatEvening6.Size = new System.Drawing.Size(102, 17);
-            this.cbEatEvening6.TabIndex = 32;
-            this.cbEatEvening6.Text = "Питание(уход)";
-            this.cbEatEvening6.UseVisualStyleBackColor = true;
-            // 
-            // cbEatEvening5
-            // 
-            this.cbEatEvening5.AutoSize = true;
-            this.cbEatEvening5.Location = new System.Drawing.Point(414, 123);
-            this.cbEatEvening5.Name = "cbEatEvening5";
-            this.cbEatEvening5.Size = new System.Drawing.Size(102, 17);
-            this.cbEatEvening5.TabIndex = 28;
-            this.cbEatEvening5.Text = "Питание(уход)";
-            this.cbEatEvening5.UseVisualStyleBackColor = true;
-            // 
-            // cbEatEvening4
-            // 
-            this.cbEatEvening4.AutoSize = true;
-            this.cbEatEvening4.Location = new System.Drawing.Point(414, 96);
-            this.cbEatEvening4.Name = "cbEatEvening4";
-            this.cbEatEvening4.Size = new System.Drawing.Size(102, 17);
-            this.cbEatEvening4.TabIndex = 24;
-            this.cbEatEvening4.Text = "Питание(уход)";
-            this.cbEatEvening4.UseVisualStyleBackColor = true;
-            // 
-            // cbEatEvening3
-            // 
-            this.cbEatEvening3.AutoSize = true;
-            this.cbEatEvening3.Location = new System.Drawing.Point(414, 69);
-            this.cbEatEvening3.Name = "cbEatEvening3";
-            this.cbEatEvening3.Size = new System.Drawing.Size(102, 17);
-            this.cbEatEvening3.TabIndex = 20;
-            this.cbEatEvening3.Text = "Питание(уход)";
-            this.cbEatEvening3.UseVisualStyleBackColor = true;
-            // 
-            // cbEatEvening2
-            // 
-            this.cbEatEvening2.AutoSize = true;
-            this.cbEatEvening2.Location = new System.Drawing.Point(414, 42);
-            this.cbEatEvening2.Name = "cbEatEvening2";
-            this.cbEatEvening2.Size = new System.Drawing.Size(102, 17);
-            this.cbEatEvening2.TabIndex = 16;
-            this.cbEatEvening2.Text = "Питание(уход)";
-            this.cbEatEvening2.UseVisualStyleBackColor = true;
-            // 
-            // cbEatEvening1
-            // 
-            this.cbEatEvening1.AutoSize = true;
-            this.cbEatEvening1.Location = new System.Drawing.Point(414, 15);
-            this.cbEatEvening1.Name = "cbEatEvening1";
-            this.cbEatEvening1.Size = new System.Drawing.Size(102, 17);
-            this.cbEatEvening1.TabIndex = 12;
-            this.cbEatEvening1.Text = "Питание(уход)";
-            this.cbEatEvening1.UseVisualStyleBackColor = true;
-            // 
-            // cbEatDay7
-            // 
-            this.cbEatDay7.AutoSize = true;
-            this.cbEatDay7.Location = new System.Drawing.Point(301, 177);
-            this.cbEatDay7.Name = "cbEatDay7";
-            this.cbEatDay7.Size = new System.Drawing.Size(114, 17);
-            this.cbEatDay7.TabIndex = 35;
-            this.cbEatDay7.Text = "Питание(приход)";
-            this.cbEatDay7.UseVisualStyleBackColor = true;
-            // 
-            // cbEatDay6
-            // 
-            this.cbEatDay6.AutoSize = true;
-            this.cbEatDay6.Location = new System.Drawing.Point(301, 150);
-            this.cbEatDay6.Name = "cbEatDay6";
-            this.cbEatDay6.Size = new System.Drawing.Size(114, 17);
-            this.cbEatDay6.TabIndex = 31;
-            this.cbEatDay6.Text = "Питание(приход)";
-            this.cbEatDay6.UseVisualStyleBackColor = true;
-            // 
-            // cbEatDay5
-            // 
-            this.cbEatDay5.AutoSize = true;
-            this.cbEatDay5.Location = new System.Drawing.Point(301, 123);
-            this.cbEatDay5.Name = "cbEatDay5";
-            this.cbEatDay5.Size = new System.Drawing.Size(114, 17);
-            this.cbEatDay5.TabIndex = 27;
-            this.cbEatDay5.Text = "Питание(приход)";
-            this.cbEatDay5.UseVisualStyleBackColor = true;
-            // 
-            // cbEatDay4
-            // 
-            this.cbEatDay4.AutoSize = true;
-            this.cbEatDay4.Location = new System.Drawing.Point(301, 96);
-            this.cbEatDay4.Name = "cbEatDay4";
-            this.cbEatDay4.Size = new System.Drawing.Size(114, 17);
-            this.cbEatDay4.TabIndex = 23;
-            this.cbEatDay4.Text = "Питание(приход)";
-            this.cbEatDay4.UseVisualStyleBackColor = true;
-            // 
-            // cbEatDay3
-            // 
-            this.cbEatDay3.AutoSize = true;
-            this.cbEatDay3.Location = new System.Drawing.Point(301, 69);
-            this.cbEatDay3.Name = "cbEatDay3";
-            this.cbEatDay3.Size = new System.Drawing.Size(114, 17);
-            this.cbEatDay3.TabIndex = 19;
-            this.cbEatDay3.Text = "Питание(приход)";
-            this.cbEatDay3.UseVisualStyleBackColor = true;
-            // 
-            // cbEatDay2
-            // 
-            this.cbEatDay2.AutoSize = true;
-            this.cbEatDay2.Location = new System.Drawing.Point(301, 42);
-            this.cbEatDay2.Name = "cbEatDay2";
-            this.cbEatDay2.Size = new System.Drawing.Size(114, 17);
-            this.cbEatDay2.TabIndex = 15;
-            this.cbEatDay2.Text = "Питание(приход)";
-            this.cbEatDay2.UseVisualStyleBackColor = true;
-            // 
-            // cbEatDay1
-            // 
-            this.cbEatDay1.AutoSize = true;
-            this.cbEatDay1.Location = new System.Drawing.Point(301, 15);
-            this.cbEatDay1.Name = "cbEatDay1";
-            this.cbEatDay1.Size = new System.Drawing.Size(114, 17);
-            this.cbEatDay1.TabIndex = 11;
-            this.cbEatDay1.Text = "Питание(приход)";
-            this.cbEatDay1.UseVisualStyleBackColor = true;
-            // 
-            // dtEnd7
-            // 
-            this.dtEnd7.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd7.Location = new System.Drawing.Point(218, 177);
-            this.dtEnd7.Name = "dtEnd7";
-            this.dtEnd7.Size = new System.Drawing.Size(77, 21);
-            this.dtEnd7.TabIndex = 34;
-            this.dtEnd7.Value = new System.DateTime(2015, 3, 15, 0, 0, 0, 0);
-            // 
-            // dtEnd6
-            // 
-            this.dtEnd6.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd6.Location = new System.Drawing.Point(218, 150);
-            this.dtEnd6.Name = "dtEnd6";
-            this.dtEnd6.Size = new System.Drawing.Size(77, 21);
-            this.dtEnd6.TabIndex = 30;
-            this.dtEnd6.Value = new System.DateTime(2015, 3, 15, 0, 0, 0, 0);
-            // 
-            // dtEnd5
-            // 
-            this.dtEnd5.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd5.Location = new System.Drawing.Point(218, 123);
-            this.dtEnd5.Name = "dtEnd5";
-            this.dtEnd5.Size = new System.Drawing.Size(77, 21);
-            this.dtEnd5.TabIndex = 26;
-            this.dtEnd5.Value = new System.DateTime(2015, 3, 15, 18, 0, 0, 0);
-            // 
-            // dtEnd4
-            // 
-            this.dtEnd4.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd4.Location = new System.Drawing.Point(218, 96);
-            this.dtEnd4.Name = "dtEnd4";
-            this.dtEnd4.Size = new System.Drawing.Size(77, 21);
-            this.dtEnd4.TabIndex = 22;
-            this.dtEnd4.Value = new System.DateTime(2015, 3, 15, 18, 0, 0, 0);
-            // 
-            // dtEnd3
-            // 
-            this.dtEnd3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd3.Location = new System.Drawing.Point(218, 69);
-            this.dtEnd3.Name = "dtEnd3";
-            this.dtEnd3.Size = new System.Drawing.Size(77, 21);
-            this.dtEnd3.TabIndex = 18;
-            this.dtEnd3.Value = new System.DateTime(2015, 3, 15, 18, 0, 0, 0);
-            // 
-            // dtEnd2
-            // 
-            this.dtEnd2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd2.Location = new System.Drawing.Point(218, 42);
-            this.dtEnd2.Name = "dtEnd2";
-            this.dtEnd2.Size = new System.Drawing.Size(77, 21);
-            this.dtEnd2.TabIndex = 14;
-            this.dtEnd2.Value = new System.DateTime(2015, 3, 15, 18, 0, 0, 0);
-            // 
-            // dtEnd1
-            // 
-            this.dtEnd1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd1.Location = new System.Drawing.Point(218, 15);
-            this.dtEnd1.Name = "dtEnd1";
-            this.dtEnd1.Size = new System.Drawing.Size(77, 21);
-            this.dtEnd1.TabIndex = 10;
-            this.dtEnd1.Value = new System.DateTime(2015, 3, 15, 18, 0, 0, 0);
-            // 
-            // dtBegin7
-            // 
-            this.dtBegin7.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtBegin7.Location = new System.Drawing.Point(135, 177);
-            this.dtBegin7.Name = "dtBegin7";
-            this.dtBegin7.Size = new System.Drawing.Size(77, 21);
-            this.dtBegin7.TabIndex = 33;
-            this.dtBegin7.Value = new System.DateTime(2015, 3, 15, 0, 0, 0, 0);
-            // 
-            // dtBegin6
-            // 
-            this.dtBegin6.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtBegin6.Location = new System.Drawing.Point(135, 150);
-            this.dtBegin6.Name = "dtBegin6";
-            this.dtBegin6.Size = new System.Drawing.Size(77, 21);
-            this.dtBegin6.TabIndex = 29;
-            this.dtBegin6.Value = new System.DateTime(2015, 3, 15, 0, 0, 0, 0);
-            // 
-            // dtBegin5
-            // 
-            this.dtBegin5.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtBegin5.Location = new System.Drawing.Point(135, 123);
-            this.dtBegin5.Name = "dtBegin5";
-            this.dtBegin5.Size = new System.Drawing.Size(77, 21);
-            this.dtBegin5.TabIndex = 25;
-            this.dtBegin5.Value = new System.DateTime(2015, 3, 15, 9, 0, 0, 0);
-            // 
-            // dtBegin4
-            // 
-            this.dtBegin4.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtBegin4.Location = new System.Drawing.Point(135, 96);
-            this.dtBegin4.Name = "dtBegin4";
-            this.dtBegin4.Size = new System.Drawing.Size(77, 21);
-            this.dtBegin4.TabIndex = 21;
-            this.dtBegin4.Value = new System.DateTime(2015, 3, 15, 9, 0, 0, 0);
-            // 
-            // dtBegin3
-            // 
-            this.dtBegin3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtBegin3.Location = new System.Drawing.Point(135, 69);
-            this.dtBegin3.Name = "dtBegin3";
-            this.dtBegin3.Size = new System.Drawing.Size(77, 21);
-            this.dtBegin3.TabIndex = 17;
-            this.dtBegin3.Value = new System.DateTime(2015, 3, 15, 9, 0, 0, 0);
-            // 
-            // dtBegin2
-            // 
-            this.dtBegin2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtBegin2.Location = new System.Drawing.Point(135, 42);
-            this.dtBegin2.Name = "dtBegin2";
-            this.dtBegin2.Size = new System.Drawing.Size(77, 21);
-            this.dtBegin2.TabIndex = 13;
-            this.dtBegin2.Value = new System.DateTime(2015, 3, 15, 9, 0, 0, 0);
-            // 
-            // dtBegin1
-            // 
-            this.dtBegin1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtBegin1.Location = new System.Drawing.Point(135, 15);
-            this.dtBegin1.Name = "dtBegin1";
-            this.dtBegin1.Size = new System.Drawing.Size(77, 21);
-            this.dtBegin1.TabIndex = 9;
-            this.dtBegin1.Value = new System.DateTime(2015, 3, 29, 9, 0, 0, 0);
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(9, 237);
+            this.label31.Location = new System.Drawing.Point(9, 234);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(90, 13);
+            this.label31.Size = new System.Drawing.Size(66, 13);
             this.label31.TabIndex = 0;
-            this.label31.Text = "Дата окончания";
+            this.label31.Text = "Дата конца";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(9, 210);
+            this.label30.Location = new System.Drawing.Point(9, 207);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(72, 13);
             this.label30.TabIndex = 0;
@@ -788,7 +837,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(804, 269);
+            this.tabPage2.Size = new System.Drawing.Size(776, 269);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Родители";
             // 
@@ -808,7 +857,7 @@
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.label28);
             this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Location = new System.Drawing.Point(520, 0);
+            this.groupBox4.Location = new System.Drawing.Point(489, 1);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(284, 269);
             this.groupBox4.TabIndex = 8;
@@ -1072,7 +1121,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(804, 269);
+            this.tabPage3.Size = new System.Drawing.Size(776, 269);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Довереные лица";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1093,7 +1142,7 @@
             this.dgTrustee.Location = new System.Drawing.Point(3, 3);
             this.dgTrustee.Name = "dgTrustee";
             this.dgTrustee.RowTemplate.Height = 23;
-            this.dgTrustee.Size = new System.Drawing.Size(798, 263);
+            this.dgTrustee.Size = new System.Drawing.Size(770, 263);
             this.dgTrustee.TabIndex = 0;
             this.dgTrustee.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgTrustee_UserDeletingRow);
             // 
@@ -1127,11 +1176,214 @@
             this.Column6.HeaderText = "Кем приходится";
             this.Column6.Name = "Column6";
             // 
+            // dtBegin1
+            // 
+            this.dtBegin1.CustomFormat = "HH:mm";
+            this.dtBegin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin1.Location = new System.Drawing.Point(90, 17);
+            this.dtBegin1.Name = "dtBegin1";
+            this.dtBegin1.ShowUpDown = true;
+            this.dtBegin1.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin1.TabIndex = 9;
+            this.dtBegin1.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd1
+            // 
+            this.dtEnd1.CustomFormat = "HH:mm";
+            this.dtEnd1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd1.Location = new System.Drawing.Point(164, 17);
+            this.dtEnd1.Name = "dtEnd1";
+            this.dtEnd1.ShowUpDown = true;
+            this.dtEnd1.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd1.TabIndex = 10;
+            this.dtEnd1.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin2
+            // 
+            this.dtBegin2.CustomFormat = "HH:mm";
+            this.dtBegin2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin2.Location = new System.Drawing.Point(90, 42);
+            this.dtBegin2.Name = "dtBegin2";
+            this.dtBegin2.ShowUpDown = true;
+            this.dtBegin2.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin2.TabIndex = 15;
+            this.dtBegin2.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd2
+            // 
+            this.dtEnd2.CustomFormat = "HH:mm";
+            this.dtEnd2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd2.Location = new System.Drawing.Point(164, 42);
+            this.dtEnd2.Name = "dtEnd2";
+            this.dtEnd2.ShowUpDown = true;
+            this.dtEnd2.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd2.TabIndex = 16;
+            this.dtEnd2.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin3
+            // 
+            this.dtBegin3.CustomFormat = "HH:mm";
+            this.dtBegin3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin3.Location = new System.Drawing.Point(90, 69);
+            this.dtBegin3.Name = "dtBegin3";
+            this.dtBegin3.ShowUpDown = true;
+            this.dtBegin3.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin3.TabIndex = 21;
+            this.dtBegin3.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd3
+            // 
+            this.dtEnd3.CustomFormat = "HH:mm";
+            this.dtEnd3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd3.Location = new System.Drawing.Point(164, 69);
+            this.dtEnd3.Name = "dtEnd3";
+            this.dtEnd3.ShowUpDown = true;
+            this.dtEnd3.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd3.TabIndex = 22;
+            this.dtEnd3.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin4
+            // 
+            this.dtBegin4.CustomFormat = "HH:mm";
+            this.dtBegin4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin4.Location = new System.Drawing.Point(90, 96);
+            this.dtBegin4.Name = "dtBegin4";
+            this.dtBegin4.ShowUpDown = true;
+            this.dtBegin4.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin4.TabIndex = 27;
+            this.dtBegin4.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd4
+            // 
+            this.dtEnd4.CustomFormat = "HH:mm";
+            this.dtEnd4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd4.Location = new System.Drawing.Point(164, 96);
+            this.dtEnd4.Name = "dtEnd4";
+            this.dtEnd4.ShowUpDown = true;
+            this.dtEnd4.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd4.TabIndex = 28;
+            this.dtEnd4.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin5
+            // 
+            this.dtBegin5.CustomFormat = "HH:mm";
+            this.dtBegin5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin5.Location = new System.Drawing.Point(90, 123);
+            this.dtBegin5.Name = "dtBegin5";
+            this.dtBegin5.ShowUpDown = true;
+            this.dtBegin5.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin5.TabIndex = 33;
+            this.dtBegin5.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd5
+            // 
+            this.dtEnd5.CustomFormat = "HH:mm";
+            this.dtEnd5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd5.Location = new System.Drawing.Point(164, 123);
+            this.dtEnd5.Name = "dtEnd5";
+            this.dtEnd5.ShowUpDown = true;
+            this.dtEnd5.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd5.TabIndex = 34;
+            this.dtEnd5.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin6
+            // 
+            this.dtBegin6.CustomFormat = "HH:mm";
+            this.dtBegin6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin6.Location = new System.Drawing.Point(90, 150);
+            this.dtBegin6.Name = "dtBegin6";
+            this.dtBegin6.ShowUpDown = true;
+            this.dtBegin6.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin6.TabIndex = 39;
+            this.dtBegin6.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // dtEnd6
+            // 
+            this.dtEnd6.CustomFormat = "HH:mm";
+            this.dtEnd6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd6.Location = new System.Drawing.Point(164, 150);
+            this.dtEnd6.Name = "dtEnd6";
+            this.dtEnd6.ShowUpDown = true;
+            this.dtEnd6.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd6.TabIndex = 40;
+            this.dtEnd6.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // dtBegin7
+            // 
+            this.dtBegin7.CustomFormat = "HH:mm";
+            this.dtBegin7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin7.Location = new System.Drawing.Point(90, 175);
+            this.dtBegin7.Name = "dtBegin7";
+            this.dtBegin7.ShowUpDown = true;
+            this.dtBegin7.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin7.TabIndex = 45;
+            this.dtBegin7.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // dtEnd7
+            // 
+            this.dtEnd7.CustomFormat = "HH:mm";
+            this.dtEnd7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd7.Location = new System.Drawing.Point(164, 175);
+            this.dtEnd7.Name = "dtEnd7";
+            this.dtEnd7.ShowUpDown = true;
+            this.dtEnd7.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd7.TabIndex = 46;
+            this.dtEnd7.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.label35);
+            this.groupBox5.Controls.Add(this.label33);
+            this.groupBox5.Controls.Add(this.label32);
+            this.groupBox5.Location = new System.Drawing.Point(238, 203);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(249, 52);
+            this.groupBox5.TabIndex = 51;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Расписание питания";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(8, 18);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(112, 13);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "Завтрак 9:30 - 10:00";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(8, 32);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(103, 13);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Обед 13:30 - 14:00";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(129, 18);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(120, 13);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Полдник 11:30 - 12:00";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(129, 32);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(103, 13);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "Ужин 17:00 - 17:30";
+            // 
             // FormAddBaby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 324);
+            this.ClientSize = new System.Drawing.Size(784, 324);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1155,6 +1407,8 @@
             this.groupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTrustee)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1166,20 +1420,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dtEnd7;
-        private System.Windows.Forms.DateTimePicker dtEnd6;
-        private System.Windows.Forms.DateTimePicker dtEnd5;
-        private System.Windows.Forms.DateTimePicker dtEnd4;
-        private System.Windows.Forms.DateTimePicker dtEnd3;
-        private System.Windows.Forms.DateTimePicker dtEnd2;
-        private System.Windows.Forms.DateTimePicker dtEnd1;
-        private System.Windows.Forms.DateTimePicker dtBegin7;
-        private System.Windows.Forms.DateTimePicker dtBegin6;
-        private System.Windows.Forms.DateTimePicker dtBegin5;
-        private System.Windows.Forms.DateTimePicker dtBegin4;
-        private System.Windows.Forms.DateTimePicker dtBegin3;
-        private System.Windows.Forms.DateTimePicker dtBegin2;
-        private System.Windows.Forms.DateTimePicker dtBegin1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -1220,20 +1460,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridView dgTrustee;
         private System.Windows.Forms.DateTimePicker dtBabyBirthday;
-        private System.Windows.Forms.CheckBox cbEatDay1;
-        private System.Windows.Forms.CheckBox cbEatEvening7;
-        private System.Windows.Forms.CheckBox cbEatEvening6;
-        private System.Windows.Forms.CheckBox cbEatEvening5;
-        private System.Windows.Forms.CheckBox cbEatEvening4;
-        private System.Windows.Forms.CheckBox cbEatEvening3;
-        private System.Windows.Forms.CheckBox cbEatEvening2;
-        private System.Windows.Forms.CheckBox cbEatEvening1;
-        private System.Windows.Forms.CheckBox cbEatDay7;
-        private System.Windows.Forms.CheckBox cbEatDay6;
-        private System.Windows.Forms.CheckBox cbEatDay5;
-        private System.Windows.Forms.CheckBox cbEatDay4;
-        private System.Windows.Forms.CheckBox cbEatDay3;
-        private System.Windows.Forms.CheckBox cbEatDay2;
         private System.Windows.Forms.TextBox tbMomWorkPhone;
         private System.Windows.Forms.TextBox tbMomWork;
         private System.Windows.Forms.TextBox tbMomHome;
@@ -1264,6 +1490,53 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.CheckBox cbDinner1;
+        private System.Windows.Forms.CheckBox cbLunch1;
+        private System.Windows.Forms.CheckBox cbSnack1;
+        private System.Windows.Forms.CheckBox cbBreakfast1;
+        private System.Windows.Forms.CheckBox cbDinner7;
+        private System.Windows.Forms.CheckBox cbDinner6;
+        private System.Windows.Forms.CheckBox cbDinner5;
+        private System.Windows.Forms.CheckBox cbDinner4;
+        private System.Windows.Forms.CheckBox cbDinner3;
+        private System.Windows.Forms.CheckBox cbDinner2;
+        private System.Windows.Forms.CheckBox cbLunch7;
+        private System.Windows.Forms.CheckBox cbLunch6;
+        private System.Windows.Forms.CheckBox cbLunch5;
+        private System.Windows.Forms.CheckBox cbLunch4;
+        private System.Windows.Forms.CheckBox cbLunch3;
+        private System.Windows.Forms.CheckBox cbLunch2;
+        private System.Windows.Forms.CheckBox cbSnack7;
+        private System.Windows.Forms.CheckBox cbSnack6;
+        private System.Windows.Forms.CheckBox cbSnack5;
+        private System.Windows.Forms.CheckBox cbSnack4;
+        private System.Windows.Forms.CheckBox cbSnack3;
+        private System.Windows.Forms.CheckBox cbSnack2;
+        private System.Windows.Forms.CheckBox cbBreakfast7;
+        private System.Windows.Forms.CheckBox cbBreakfast6;
+        private System.Windows.Forms.CheckBox cbBreakfast5;
+        private System.Windows.Forms.CheckBox cbBreakfast4;
+        private System.Windows.Forms.CheckBox cbBreakfast3;
+        private System.Windows.Forms.CheckBox cbBreakfast2;
+        private System.Windows.Forms.DateTimePicker dtEnd7;
+        private System.Windows.Forms.DateTimePicker dtBegin7;
+        private System.Windows.Forms.DateTimePicker dtEnd6;
+        private System.Windows.Forms.DateTimePicker dtBegin6;
+        private System.Windows.Forms.DateTimePicker dtEnd5;
+        private System.Windows.Forms.DateTimePicker dtBegin5;
+        private System.Windows.Forms.DateTimePicker dtEnd4;
+        private System.Windows.Forms.DateTimePicker dtBegin4;
+        private System.Windows.Forms.DateTimePicker dtEnd3;
+        private System.Windows.Forms.DateTimePicker dtBegin3;
+        private System.Windows.Forms.DateTimePicker dtEnd2;
+        private System.Windows.Forms.DateTimePicker dtBegin2;
+        private System.Windows.Forms.DateTimePicker dtEnd1;
+        private System.Windows.Forms.DateTimePicker dtBegin1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
 
     }
 }

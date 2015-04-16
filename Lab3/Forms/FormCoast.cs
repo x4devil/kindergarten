@@ -157,12 +157,14 @@ namespace Lab3
                 String str = "";
                 for (int i = 0; i < rowsCount; i++)
                 {
-                    str = this.dgPaymentList[1, i].Value.ToString();
-                    str += " | " + this.dgPaymentList[2, i].Value.ToString();
-                    str += " | " + this.dgPaymentList[3, i].Value.ToString();
-                    str += " | " + this.dgPaymentList[4, i].Value.ToString();
-                    str += " | " + this.dgPaymentList[5, i].Value.ToString();
-                    str += " | " + this.dgPaymentList[6, i].Value.ToString();
+                    str = "";
+                    str += (i + 1);
+                    str += " " + this.dgPaymentList[1, i].Value.ToString();
+                    str += " " + this.dgPaymentList[2, i].Value.ToString();
+                    str += " " + this.dgPaymentList[3, i].Value.ToString();
+                    str += " " + this.dgPaymentList[4, i].Value.ToString();
+                    str += " " + this.dgPaymentList[5, i].Value.ToString();
+                    str += " " + this.dgPaymentList[6, i].Value.ToString();
                     file.WriteLine(str);
                 }
             }
