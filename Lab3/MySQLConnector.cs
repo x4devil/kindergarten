@@ -770,6 +770,58 @@ namespace Lab3
             }
         }
 
+        /// <summary>
+        /// Получает список питания на заданную дату
+        /// </summary>
+        /// <param name="date">Дата</param>
+        /// <returns>Список питания или null</returns>
+        public DataTable getEatingListByDate(DateTime date)
+        {
+            String d = date.ToString("yyyy-MM-dd");
+            String sql = String.Format("select " +
+                " e.eating_id as \"ID\"," +
+                " e.baby_id as \"Baby ID\", " +
+                " (select concat_ws(\" \", b.baby_surname, b.baby_name, b.baby_patronomic)" +
+                "   from baby b" +
+                "   where b.baby_id = e.baby_id " +
+                " ) as \"Baby name\"," +
+                " e.nutrition_type_id as \"N ID\"," +
+                " e.coast as \"Cost\" " +
+                " from eating e" +
+                " where e.eating_date = '{0}'",
+                d);
+            return select(sql);
+        }
+
+        /// <summary>
+        /// Получает текущую стомость питания
+        /// </summary>
+        public double[] getEatingCost()
+        {
+            String sql = ("select " +
+                " eatshedule_id as \"ID\", " +
+                " eating_cost as \"Cost\" " +
+                " from eatshedule");
+            DataTable data = select(sql);
+            double[] costs = new double[4];
+            for (int i = 0; i < 4; i++ )
+            {
+                costs[i] = data.Rows[i].Field<double>("Cost");
+            }
+            return costs;
+        }
+        /// <summary>
+        /// Получает дату окончания графика питания
+        /// </summary>
+        public DateTime getEatscheduleEndDate()
+        {
+            String sql = ("select " +
+                " eatschedule_date_end as \"Date\" " +
+                " from eatshedule " +
+                " where eatshedule_id = 1");
+            DataTable data = select(sql);
+            return data.Rows[0].Field<DateTime>("Date");
+        }
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -949,7 +1001,23 @@ namespace Lab3
             return execute(sql);
         }
 
-        
+        /// <summary>
+        /// Вставка нового питания
+        /// </summary>
+        /// <param name="baby_id">Id ребенка</param>
+        /// <param name="date">Дата</param>
+        /// <param name="nut_id">ID типа питания</param>
+        /// <param name="cost">Текущая стоимость</param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool insertEating(int baby_id, String date, int nut_id, double cost)
+        {
+            String sql = String.Format("insert into eating" +
+                " (eating_date, nutrition_type_id, baby_id, coast) " +
+                " values('{0}',{1},{2},{3})",
+                date, nut_id, baby_id, cost);
+            return execute(sql);
+        }
+
         /*****************************************************************************************
          ************************* Методы связанные с обновлением данных***************************** 
          *****************************************************************************************
@@ -1233,6 +1301,21 @@ namespace Lab3
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Удаление питания по типу, дате и ребенку
+        /// </summary>
+        /// <param name="id">id воспитателя, которого необходимо удалить </param>
+        /// <returns>true если операция выполнена успешно иначе false</returns>
+        public bool deleteEating(int baby_id, int nut_id, String date)
+        {
+            String sql = String.Format("delete from eating" +
+                " where nutrition_type_id = {0} " +
+                " and baby_id = {1} " +
+                " and eating_date = '{2}'",
+                nut_id, baby_id, date);
+            return execute(sql);
         }
     }
 }

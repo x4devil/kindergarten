@@ -309,5 +309,15 @@ namespace Lab3
                 GlobalVars.babyIsFind = false;
             }
         }
+
+        /// <summary>
+        /// Загрузка формы учета питания
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void учетПитанияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showForm(new FormEat());
+        }
     }
 }
