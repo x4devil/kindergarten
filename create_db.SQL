@@ -148,6 +148,7 @@ create index ix_relationship36 on visiting (educator_id)
 create table eating
 (
   eating_id int not null auto_increment,
+  coast int not null,
   eating_date date not null,
   nutrition_type_id int,
   baby_id int not null,
