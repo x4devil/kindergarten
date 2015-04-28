@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCoast = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -36,6 +38,25 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dtBabyBirthday = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.dtEnd7 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin7 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd6 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin6 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd5 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin5 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd4 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin4 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd3 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin3 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd2 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin2 = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd1 = new System.Windows.Forms.DateTimePicker();
+            this.dtBegin1 = new System.Windows.Forms.DateTimePicker();
             this.cbDinner7 = new System.Windows.Forms.CheckBox();
             this.cbDinner6 = new System.Windows.Forms.CheckBox();
             this.cbDinner5 = new System.Windows.Forms.CheckBox();
@@ -131,41 +152,24 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtBegin1 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd1 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin2 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd2 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin3 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd3 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin4 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd4 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin5 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd5 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin6 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd6 = new System.Windows.Forms.DateTimePicker();
-            this.dtBegin7 = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd7 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTrustee)).BeginInit();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblCoast);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -173,6 +177,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 29);
             this.panel1.TabIndex = 50;
+            // 
+            // lblCoast
+            // 
+            this.lblCoast.AutoSize = true;
+            this.lblCoast.Location = new System.Drawing.Point(7, 8);
+            this.lblCoast.Name = "lblCoast";
+            this.lblCoast.Size = new System.Drawing.Size(154, 13);
+            this.lblCoast.TabIndex = 52;
+            this.lblCoast.Text = "Предполагаемая стоимость: ";
             // 
             // btnCancel
             // 
@@ -305,6 +318,209 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Планируемый график посещения";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.label35);
+            this.groupBox5.Controls.Add(this.label33);
+            this.groupBox5.Controls.Add(this.label32);
+            this.groupBox5.Location = new System.Drawing.Point(238, 203);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(249, 52);
+            this.groupBox5.TabIndex = 51;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Расписание питания";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(129, 18);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(120, 13);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Полдник 11:30 - 12:00";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(129, 32);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(103, 13);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "Ужин 17:00 - 17:30";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(8, 32);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(103, 13);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Обед 13:30 - 14:00";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(8, 18);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(112, 13);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "Завтрак 9:30 - 10:00";
+            // 
+            // dtEnd7
+            // 
+            this.dtEnd7.CustomFormat = "HH:mm";
+            this.dtEnd7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd7.Location = new System.Drawing.Point(164, 175);
+            this.dtEnd7.Name = "dtEnd7";
+            this.dtEnd7.ShowUpDown = true;
+            this.dtEnd7.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd7.TabIndex = 46;
+            this.dtEnd7.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // dtBegin7
+            // 
+            this.dtBegin7.CustomFormat = "HH:mm";
+            this.dtBegin7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin7.Location = new System.Drawing.Point(90, 175);
+            this.dtBegin7.Name = "dtBegin7";
+            this.dtBegin7.ShowUpDown = true;
+            this.dtBegin7.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin7.TabIndex = 45;
+            this.dtBegin7.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // dtEnd6
+            // 
+            this.dtEnd6.CustomFormat = "HH:mm";
+            this.dtEnd6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd6.Location = new System.Drawing.Point(164, 150);
+            this.dtEnd6.Name = "dtEnd6";
+            this.dtEnd6.ShowUpDown = true;
+            this.dtEnd6.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd6.TabIndex = 40;
+            this.dtEnd6.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // dtBegin6
+            // 
+            this.dtBegin6.CustomFormat = "HH:mm";
+            this.dtBegin6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin6.Location = new System.Drawing.Point(90, 150);
+            this.dtBegin6.Name = "dtBegin6";
+            this.dtBegin6.ShowUpDown = true;
+            this.dtBegin6.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin6.TabIndex = 39;
+            this.dtBegin6.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
+            // 
+            // dtEnd5
+            // 
+            this.dtEnd5.CustomFormat = "HH:mm";
+            this.dtEnd5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd5.Location = new System.Drawing.Point(164, 123);
+            this.dtEnd5.Name = "dtEnd5";
+            this.dtEnd5.ShowUpDown = true;
+            this.dtEnd5.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd5.TabIndex = 34;
+            this.dtEnd5.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin5
+            // 
+            this.dtBegin5.CustomFormat = "HH:mm";
+            this.dtBegin5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin5.Location = new System.Drawing.Point(90, 123);
+            this.dtBegin5.Name = "dtBegin5";
+            this.dtBegin5.ShowUpDown = true;
+            this.dtBegin5.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin5.TabIndex = 33;
+            this.dtBegin5.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd4
+            // 
+            this.dtEnd4.CustomFormat = "HH:mm";
+            this.dtEnd4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd4.Location = new System.Drawing.Point(164, 96);
+            this.dtEnd4.Name = "dtEnd4";
+            this.dtEnd4.ShowUpDown = true;
+            this.dtEnd4.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd4.TabIndex = 28;
+            this.dtEnd4.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin4
+            // 
+            this.dtBegin4.CustomFormat = "HH:mm";
+            this.dtBegin4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin4.Location = new System.Drawing.Point(90, 96);
+            this.dtBegin4.Name = "dtBegin4";
+            this.dtBegin4.ShowUpDown = true;
+            this.dtBegin4.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin4.TabIndex = 27;
+            this.dtBegin4.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd3
+            // 
+            this.dtEnd3.CustomFormat = "HH:mm";
+            this.dtEnd3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd3.Location = new System.Drawing.Point(164, 69);
+            this.dtEnd3.Name = "dtEnd3";
+            this.dtEnd3.ShowUpDown = true;
+            this.dtEnd3.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd3.TabIndex = 22;
+            this.dtEnd3.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin3
+            // 
+            this.dtBegin3.CustomFormat = "HH:mm";
+            this.dtBegin3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin3.Location = new System.Drawing.Point(90, 69);
+            this.dtBegin3.Name = "dtBegin3";
+            this.dtBegin3.ShowUpDown = true;
+            this.dtBegin3.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin3.TabIndex = 21;
+            this.dtBegin3.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd2
+            // 
+            this.dtEnd2.CustomFormat = "HH:mm";
+            this.dtEnd2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd2.Location = new System.Drawing.Point(164, 42);
+            this.dtEnd2.Name = "dtEnd2";
+            this.dtEnd2.ShowUpDown = true;
+            this.dtEnd2.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd2.TabIndex = 16;
+            this.dtEnd2.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin2
+            // 
+            this.dtBegin2.CustomFormat = "HH:mm";
+            this.dtBegin2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin2.Location = new System.Drawing.Point(90, 42);
+            this.dtBegin2.Name = "dtBegin2";
+            this.dtBegin2.ShowUpDown = true;
+            this.dtBegin2.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin2.TabIndex = 15;
+            this.dtBegin2.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
+            // 
+            // dtEnd1
+            // 
+            this.dtEnd1.CustomFormat = "HH:mm";
+            this.dtEnd1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd1.Location = new System.Drawing.Point(164, 17);
+            this.dtEnd1.Name = "dtEnd1";
+            this.dtEnd1.ShowUpDown = true;
+            this.dtEnd1.Size = new System.Drawing.Size(68, 21);
+            this.dtEnd1.TabIndex = 10;
+            this.dtEnd1.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
+            // 
+            // dtBegin1
+            // 
+            this.dtBegin1.CustomFormat = "HH:mm";
+            this.dtBegin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBegin1.Location = new System.Drawing.Point(90, 17);
+            this.dtBegin1.Name = "dtBegin1";
+            this.dtBegin1.ShowUpDown = true;
+            this.dtBegin1.Size = new System.Drawing.Size(68, 21);
+            this.dtBegin1.TabIndex = 9;
+            this.dtBegin1.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
             // 
             // cbDinner7
             // 
@@ -1176,208 +1392,9 @@
             this.Column6.HeaderText = "Кем приходится";
             this.Column6.Name = "Column6";
             // 
-            // dtBegin1
+            // timer1
             // 
-            this.dtBegin1.CustomFormat = "HH:mm";
-            this.dtBegin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBegin1.Location = new System.Drawing.Point(90, 17);
-            this.dtBegin1.Name = "dtBegin1";
-            this.dtBegin1.ShowUpDown = true;
-            this.dtBegin1.Size = new System.Drawing.Size(68, 21);
-            this.dtBegin1.TabIndex = 9;
-            this.dtBegin1.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
-            // 
-            // dtEnd1
-            // 
-            this.dtEnd1.CustomFormat = "HH:mm";
-            this.dtEnd1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd1.Location = new System.Drawing.Point(164, 17);
-            this.dtEnd1.Name = "dtEnd1";
-            this.dtEnd1.ShowUpDown = true;
-            this.dtEnd1.Size = new System.Drawing.Size(68, 21);
-            this.dtEnd1.TabIndex = 10;
-            this.dtEnd1.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
-            // 
-            // dtBegin2
-            // 
-            this.dtBegin2.CustomFormat = "HH:mm";
-            this.dtBegin2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBegin2.Location = new System.Drawing.Point(90, 42);
-            this.dtBegin2.Name = "dtBegin2";
-            this.dtBegin2.ShowUpDown = true;
-            this.dtBegin2.Size = new System.Drawing.Size(68, 21);
-            this.dtBegin2.TabIndex = 15;
-            this.dtBegin2.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
-            // 
-            // dtEnd2
-            // 
-            this.dtEnd2.CustomFormat = "HH:mm";
-            this.dtEnd2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd2.Location = new System.Drawing.Point(164, 42);
-            this.dtEnd2.Name = "dtEnd2";
-            this.dtEnd2.ShowUpDown = true;
-            this.dtEnd2.Size = new System.Drawing.Size(68, 21);
-            this.dtEnd2.TabIndex = 16;
-            this.dtEnd2.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
-            // 
-            // dtBegin3
-            // 
-            this.dtBegin3.CustomFormat = "HH:mm";
-            this.dtBegin3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBegin3.Location = new System.Drawing.Point(90, 69);
-            this.dtBegin3.Name = "dtBegin3";
-            this.dtBegin3.ShowUpDown = true;
-            this.dtBegin3.Size = new System.Drawing.Size(68, 21);
-            this.dtBegin3.TabIndex = 21;
-            this.dtBegin3.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
-            // 
-            // dtEnd3
-            // 
-            this.dtEnd3.CustomFormat = "HH:mm";
-            this.dtEnd3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd3.Location = new System.Drawing.Point(164, 69);
-            this.dtEnd3.Name = "dtEnd3";
-            this.dtEnd3.ShowUpDown = true;
-            this.dtEnd3.Size = new System.Drawing.Size(68, 21);
-            this.dtEnd3.TabIndex = 22;
-            this.dtEnd3.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
-            // 
-            // dtBegin4
-            // 
-            this.dtBegin4.CustomFormat = "HH:mm";
-            this.dtBegin4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBegin4.Location = new System.Drawing.Point(90, 96);
-            this.dtBegin4.Name = "dtBegin4";
-            this.dtBegin4.ShowUpDown = true;
-            this.dtBegin4.Size = new System.Drawing.Size(68, 21);
-            this.dtBegin4.TabIndex = 27;
-            this.dtBegin4.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
-            // 
-            // dtEnd4
-            // 
-            this.dtEnd4.CustomFormat = "HH:mm";
-            this.dtEnd4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd4.Location = new System.Drawing.Point(164, 96);
-            this.dtEnd4.Name = "dtEnd4";
-            this.dtEnd4.ShowUpDown = true;
-            this.dtEnd4.Size = new System.Drawing.Size(68, 21);
-            this.dtEnd4.TabIndex = 28;
-            this.dtEnd4.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
-            // 
-            // dtBegin5
-            // 
-            this.dtBegin5.CustomFormat = "HH:mm";
-            this.dtBegin5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBegin5.Location = new System.Drawing.Point(90, 123);
-            this.dtBegin5.Name = "dtBegin5";
-            this.dtBegin5.ShowUpDown = true;
-            this.dtBegin5.Size = new System.Drawing.Size(68, 21);
-            this.dtBegin5.TabIndex = 33;
-            this.dtBegin5.Value = new System.DateTime(2015, 4, 16, 9, 0, 0, 0);
-            // 
-            // dtEnd5
-            // 
-            this.dtEnd5.CustomFormat = "HH:mm";
-            this.dtEnd5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd5.Location = new System.Drawing.Point(164, 123);
-            this.dtEnd5.Name = "dtEnd5";
-            this.dtEnd5.ShowUpDown = true;
-            this.dtEnd5.Size = new System.Drawing.Size(68, 21);
-            this.dtEnd5.TabIndex = 34;
-            this.dtEnd5.Value = new System.DateTime(2015, 4, 16, 18, 0, 0, 0);
-            // 
-            // dtBegin6
-            // 
-            this.dtBegin6.CustomFormat = "HH:mm";
-            this.dtBegin6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBegin6.Location = new System.Drawing.Point(90, 150);
-            this.dtBegin6.Name = "dtBegin6";
-            this.dtBegin6.ShowUpDown = true;
-            this.dtBegin6.Size = new System.Drawing.Size(68, 21);
-            this.dtBegin6.TabIndex = 39;
-            this.dtBegin6.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
-            // 
-            // dtEnd6
-            // 
-            this.dtEnd6.CustomFormat = "HH:mm";
-            this.dtEnd6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd6.Location = new System.Drawing.Point(164, 150);
-            this.dtEnd6.Name = "dtEnd6";
-            this.dtEnd6.ShowUpDown = true;
-            this.dtEnd6.Size = new System.Drawing.Size(68, 21);
-            this.dtEnd6.TabIndex = 40;
-            this.dtEnd6.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
-            // 
-            // dtBegin7
-            // 
-            this.dtBegin7.CustomFormat = "HH:mm";
-            this.dtBegin7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBegin7.Location = new System.Drawing.Point(90, 175);
-            this.dtBegin7.Name = "dtBegin7";
-            this.dtBegin7.ShowUpDown = true;
-            this.dtBegin7.Size = new System.Drawing.Size(68, 21);
-            this.dtBegin7.TabIndex = 45;
-            this.dtBegin7.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
-            // 
-            // dtEnd7
-            // 
-            this.dtEnd7.CustomFormat = "HH:mm";
-            this.dtEnd7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd7.Location = new System.Drawing.Point(164, 175);
-            this.dtEnd7.Name = "dtEnd7";
-            this.dtEnd7.ShowUpDown = true;
-            this.dtEnd7.Size = new System.Drawing.Size(68, 21);
-            this.dtEnd7.TabIndex = 46;
-            this.dtEnd7.Value = new System.DateTime(2015, 4, 16, 0, 0, 0, 0);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label34);
-            this.groupBox5.Controls.Add(this.label35);
-            this.groupBox5.Controls.Add(this.label33);
-            this.groupBox5.Controls.Add(this.label32);
-            this.groupBox5.Location = new System.Drawing.Point(238, 203);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(249, 52);
-            this.groupBox5.TabIndex = 51;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Расписание питания";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(8, 18);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(112, 13);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "Завтрак 9:30 - 10:00";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(8, 32);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(103, 13);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Обед 13:30 - 14:00";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(129, 18);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(120, 13);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Полдник 11:30 - 12:00";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(129, 32);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(103, 13);
-            this.label35.TabIndex = 0;
-            this.label35.Text = "Ужин 17:00 - 17:30";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormAddBaby
             // 
@@ -1392,12 +1409,15 @@
             this.Text = "Личная карта";
             this.Load += new System.EventHandler(this.FormAddBaby_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1407,8 +1427,6 @@
             this.groupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTrustee)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1537,6 +1555,8 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label lblCoast;
+        private System.Windows.Forms.Timer timer1;
 
     }
 }

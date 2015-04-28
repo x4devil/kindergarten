@@ -32,18 +32,25 @@ namespace Lab3
 
                 for (int i = 0; i < rowsCount; i++)
                 {
-                    DateTime begin = Convert.ToDateTime(visiting.Rows[i][0]);
-                    DateTime end = Convert.ToDateTime(visiting.Rows[i][1]);
-                    double coast = (Convert.ToDouble(visiting.Rows[i][2]) / 60); //Стоимость минуты
-
-                    TimeSpan span = end - begin;
-                    int minutes = (span.Hours * 60);
-                    if (!Settings.isFullHour)
+                    try
                     {
-                        minutes += span.Minutes;
-                    }
+                        DateTime begin = Convert.ToDateTime(visiting.Rows[i][0]);
+                        DateTime end = Convert.ToDateTime(visiting.Rows[i][1]);
+                        double coast = (Convert.ToDouble(visiting.Rows[i][2]) / 60); //Стоимость минуты
 
-                    debt += (coast * minutes);
+                        TimeSpan span = end - begin;
+                        int minutes = (span.Hours * 60);
+                        if (!Settings.isFullHour)
+                        {
+                            minutes += span.Minutes;
+                        }
+
+                        debt += (coast * minutes);
+                    }
+                    catch
+                    {
+
+                    }
                 }
 
                 return debt;
@@ -54,6 +61,31 @@ namespace Lab3
             }
         }
 
+        /// <summary>
+        /// Расчитывает задолженность ребенка за питание 
+        /// </summary>
+        /// <param name = "babyId">Ид ребенка</param>>
+        /// <returns>Задолженость ребенка за питание</returns>
+        public double countEatingDebt(int babyId)
+        {
+            DataTable table = GlobalVars.connection.getEatingByBabyId(babyId);
+            if (table != null && table.Rows.Count > 0)
+            {
+                double debt = 0;
+                int rowsCount = table.Rows.Count;
+                for (int i = 0; i < rowsCount; i++)
+                {
+                    int coast = Convert.ToInt32(table.Rows[i][0]);
+                    debt += coast;
+                }
+                return debt;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        
         /// <summary>
         /// Первоначальная инициализация
         /// </summary>
@@ -84,6 +116,7 @@ namespace Lab3
 
                     balance = Convert.ToDouble(table.Rows[i][6]);
                     debt = countVisitingDebt(id);
+                    debt += countEatingDebt(id);
                     this.dgPaymentList[6, i].Value = balance - debt;
                 }
 
@@ -135,6 +168,7 @@ namespace Lab3
                 if (payForm.DialogResult == DialogResult.OK)
                 {
                     double debt = countVisitingDebt(babyId);
+                    debt += countEatingDebt(babyId);
                     double balance = GlobalVars.babyPay.balance - debt;
                     this.dgPaymentList[6, rowIndex].Value = balance;
                 }

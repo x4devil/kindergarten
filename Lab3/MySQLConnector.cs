@@ -822,6 +822,110 @@ namespace Lab3
             DataTable data = select(sql);
             return data.Rows[0].Field<DateTime>("Date");
         }
+
+        /// <summary>
+        /// Получает информацию о питании ребенка
+        /// </summary>
+        /// <param name="babyId">Ид ребенка</param>
+        /// <returns>Информация о питании ребенка</returns>
+        public DataTable getEatingByBabyId(int babyId)
+        {
+            String sql = String.Format("select coast from eating where baby_id = {0}", babyId);
+            return select(sql);
+        }
+
+        /// <summary>
+        /// Проверяет есть ли расписание питания
+        /// </summary>
+        /// <returns>true - если расписание есть иначе false</returns>
+        public bool isHasEatShedule()
+        {
+            String sql = String.Format("select eatshedule_id from eatshedule");
+            DataTable table = select(sql);
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Получает информацию о питании
+        /// </summary>
+        /// <param name="eatId"></param>
+        /// <returns>Информация о питании</returns>
+        public Eat getEatById(int eatId)
+        {
+            Eat result = new Eat();
+            String sql = String.Format("select eatshedule_time_begin, eatshedule_time_end, eating_cost from eatshedule where nutrition_type_id = {0}", eatId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                result.id = eatId;
+                result.timeBegin = Convert.ToDateTime(table.Rows[0][0]).TimeOfDay;
+                result.timeEnd = Convert.ToDateTime(table.Rows[0][1]).TimeOfDay;
+                result.coast = Convert.ToInt32(table.Rows[0][2]);
+                return result;
+            }
+            return null;
+        }
+        
+        /// <summary>
+        /// Получает расписание питания
+        /// </summary>
+        /// <returns>Расписание питания</returns>
+        public EatShedule getEatShedule()
+        {
+            if (isHasEatShedule())
+            {
+                String sql = "select eatschedule_date_begin, eatschedule_date_end from eatshedule";
+                DataTable table = select(sql);
+                if (table != null && table.Rows.Count > 0)
+                {
+                    EatShedule shedule = new EatShedule();
+                    shedule.dateBegin = Convert.ToDateTime(table.Rows[0][0]);
+                    shedule.dateEnd = Convert.ToDateTime(table.Rows[0][1]);
+
+                    shedule.breakfast = getEatById(1);
+                    shedule.snack = getEatById(2);
+                    shedule.lunch = getEatById(3);
+                    shedule.dinner = getEatById(4);
+                    
+                    return shedule;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Стоиость часа в группе
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <returns>Стоимость часа</returns>
+        public int getGroupCoast(int groupId)
+        {
+            String sql = String.Format("select group_coast from grouptable where group_id = {0}", groupId);
+            DataTable table = select(sql);
+            if (table != null && table.Rows.Count > 0)
+            {
+                return Convert.ToInt32(table.Rows[0][0]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
         /*****************************************************************************************
          ************************* Методы связанные с вставкой данных***************************** 
          *****************************************************************************************
@@ -1018,6 +1122,35 @@ namespace Lab3
             return execute(sql);
         }
 
+        public bool insertEatShedule(EatShedule shedule)
+        {
+            deleteEatShedule();
+
+            String sql = String.Format("INSERT INTO eatshedule (eatshedule_time_begin, eatshedule_time_end, eating_cost, eatschedule_date_begin, eatschedule_date_end, nutrition_type_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
+                new DateTime(1990, 1, 1, shedule.breakfast.timeBegin.Hours, shedule.breakfast.timeBegin.Minutes, shedule.breakfast.timeBegin.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                new DateTime(1990, 1, 1, shedule.breakfast.timeEnd.Hours, shedule.breakfast.timeEnd.Minutes, shedule.breakfast.timeEnd.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                shedule.breakfast.coast, shedule.dateBegin.ToString("yyyy-MM-dd"), shedule.dateEnd.ToString("yyyy-MM-dd"), 1);
+            execute(sql);
+
+            sql = String.Format("INSERT INTO eatshedule (eatshedule_time_begin, eatshedule_time_end, eating_cost, eatschedule_date_begin, eatschedule_date_end, nutrition_type_id) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
+                new DateTime(1990, 1, 1, shedule.snack.timeBegin.Hours, shedule.snack.timeBegin.Minutes, shedule.snack.timeBegin.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                new DateTime(1990, 1, 1, shedule.snack.timeEnd.Hours, shedule.snack.timeEnd.Minutes, shedule.snack.timeEnd.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                shedule.snack.coast, shedule.dateBegin.ToString("yyyy-MM-dd"), shedule.dateEnd.ToString("yyyy-MM-dd"), 2);
+            execute(sql);
+
+            sql = String.Format("INSERT INTO eatshedule (eatshedule_time_begin, eatshedule_time_end, eating_cost, eatschedule_date_begin, eatschedule_date_end, nutrition_type_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
+                new DateTime(1990, 1, 1, shedule.lunch.timeBegin.Hours, shedule.lunch.timeBegin.Minutes, shedule.lunch.timeBegin.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                new DateTime(1990, 1, 1, shedule.lunch.timeEnd.Hours, shedule.lunch.timeEnd.Minutes, shedule.lunch.timeEnd.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                shedule.lunch.coast, shedule.dateBegin.ToString("yyyy-MM-dd"), shedule.dateEnd.ToString("yyyy-MM-dd"), 3);
+            execute(sql);
+
+            sql = String.Format("INSERT INTO eatshedule (eatshedule_time_begin, eatshedule_time_end, eating_cost, eatschedule_date_begin, eatschedule_date_end, nutrition_type_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
+                new DateTime(1990, 1, 1, shedule.dinner.timeBegin.Hours, shedule.dinner.timeBegin.Minutes, shedule.dinner.timeBegin.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                new DateTime(1990, 1, 1, shedule.dinner.timeEnd.Hours, shedule.dinner.timeEnd.Minutes, shedule.dinner.timeEnd.Seconds).ToString("yyyy-MM-dd HH:mm:ss"),
+                shedule.dinner.coast, shedule.dateBegin.ToString("yyyy-MM-dd"), shedule.dateEnd.ToString("yyyy-MM-dd"), 4);
+            execute(sql);
+            return true;
+        }
         /*****************************************************************************************
          ************************* Методы связанные с обновлением данных***************************** 
          *****************************************************************************************
@@ -1316,6 +1449,20 @@ namespace Lab3
                 " and eating_date = '{2}'",
                 nut_id, baby_id, date);
             return execute(sql);
+        }
+
+        /// <summary>
+        /// Удаление расписания
+        /// </summary>
+        /// <returns></returns>
+        public bool deleteEatShedule()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                String sql = String.Format("delete from eatshedule where nutrition_type_id = {0}", i + 1);
+                execute(sql);
+            }
+            return true;
         }
     }
 }

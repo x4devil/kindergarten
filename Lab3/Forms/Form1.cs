@@ -319,5 +319,10 @@ namespace Lab3
         {
             showForm(new FormEat());
         }
+
+        private void стоимостьПитанияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showForm(new FormEatCoas());
+        }
     }
 }

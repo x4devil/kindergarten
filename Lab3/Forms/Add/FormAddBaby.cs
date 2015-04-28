@@ -48,6 +48,11 @@ namespace Lab3.List
         private static Parent father, mother;
         private static List<int> deleteTrustee;
         /// <summary>
+        /// Стоимость одной минуты
+        /// </summary>
+        private static int groupCoast;
+        private static EatShedule shedule;
+        /// <summary>
         /// Первоначальная инициализация
         /// </summary>
         private void init()
@@ -254,7 +259,17 @@ namespace Lab3.List
                 this.dtEnd.Value = this.dtBegin.Value.Date.AddDays(1);
                 this.dgTrustee.Columns[0].Visible = false;
             }
+            shedule = GlobalVars.connection.getEatShedule();
+            if (shedule != null)
+            {
+                this.label32.Text = shedule.breakfast.timeBegin.ToString() + " - " + shedule.breakfast.timeEnd.ToString();
+                this.label34.Text = shedule.snack.timeBegin.ToString() + " - " + shedule.snack.timeEnd.ToString();
+                this.label33.Text = shedule.lunch.timeBegin.ToString() + " - " + shedule.lunch.timeEnd.ToString();
+                this.label35.Text = shedule.dinner.timeBegin.ToString() + " - " + shedule.dinner.timeEnd.ToString();
+            }
 
+            groupCoast = GlobalVars.connection.getGroupCoast(GlobalVars.activeGroupId) / 60;
+            this.timer1.Start();
         }
 
         /// <summary>
@@ -1363,6 +1378,116 @@ namespace Lab3.List
                 }
             }
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTimePicker[] dateBegin = {
+                                this.dtBegin1,
+                                this.dtBegin2,
+                                this.dtBegin3,
+                                this.dtBegin4,
+                                this.dtBegin5,
+                                this.dtBegin6,
+                                this.dtBegin7
+            };
+
+            DateTimePicker[] dateEnd = {
+                                this.dtEnd1,
+                                this.dtEnd2,
+                                this.dtEnd3,
+                                this.dtEnd4,
+                                this.dtEnd5,
+                                this.dtEnd6,
+                                this.dtEnd7
+            };
+
+            CheckBox[] eatBreakfast = {
+                                this.cbBreakfast1,
+                                this.cbBreakfast2,
+                                this.cbBreakfast3,
+                                this.cbBreakfast4,
+                                this.cbBreakfast5,
+                                this.cbBreakfast6,
+                                this.cbBreakfast7
+                                    };
+            CheckBox[] eatSnack = {
+                                this.cbSnack1,
+                                this.cbSnack2,
+                                this.cbSnack3,
+                                this.cbSnack4,
+                                this.cbSnack5,
+                                this.cbSnack6,
+                                this.cbSnack7
+                                    };
+            CheckBox[] eatLunch = {
+                                this.cbLunch1,
+                                this.cbLunch2,
+                                this.cbLunch3,
+                                this.cbLunch4,
+                                this.cbLunch5,
+                                this.cbLunch6,
+                                this.cbLunch7
+
+                                  };
+            CheckBox[] eatDinner = {
+                                this.cbDinner1,
+                                this.cbDinner2,
+                                this.cbDinner3,
+                                this.cbDinner4,
+                                this.cbDinner5,
+                                this.cbDinner6,
+                                this.cbDinner7
+                                   };
+            double coast = 0;
+            DateTime start = this.dtBegin.Value;
+            DateTime finish = this.dtEnd.Value;
+            TimeSpan sp = finish - start;
+            
+
+            //Расчитываем стоимоть за пребывание
+            for (int i = 0; i < dateBegin.Length; i++)
+            {
+                DateTime begin = dateBegin[i].Value;
+                DateTime end = dateEnd[i].Value;
+                
+                if((begin.TimeOfDay.Hours != 0 || begin.TimeOfDay.Minutes != 0) ||
+                    (end.TimeOfDay.Hours != 0 || end.TimeOfDay.Minutes != 0))
+                {
+                    TimeSpan span = end - begin;
+                    int minutes = (span.Hours * 60);
+                    if (!Settings.isFullHour)
+                    {
+                        minutes += span.Minutes;
+                    }
+                    if (shedule != null)
+                    {
+                        if (eatBreakfast[i].Checked)
+                        {
+                            coast += shedule.breakfast.coast;
+                        }
+
+                        if (eatSnack[i].Checked)
+                        {
+                            coast += shedule.snack.coast;
+                        }
+
+                        if (eatLunch[i].Checked)
+                        {
+                            coast += shedule.lunch.coast;
+                        }
+
+                        if (eatDinner[i].Checked)
+                        {
+                            coast += shedule.dinner.coast;
+                        }
+                    }
+                    coast += minutes * groupCoast;
+                }
+
+            }
+            
+            this.lblCoast.Text = "Стоимость одной недели: " + coast;
         }
 
     }

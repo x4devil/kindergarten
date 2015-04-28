@@ -113,3 +113,6 @@ C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj
 C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\obj\Debug\Lab3.csproj.GenerateResource.Cache
 C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\bin\Debug\Lab3.exe
 C:\Users\Sacrimate\Documents\Учеба\IVGRADE\КР\Repo2\kindergarten\Lab3\bin\Debug\Lab3.pdb
+D:\Семестр 8\Командная разработка\Project\Lab3\bin\Debug\MySql.Data.dll
+D:\Семестр 8\Командная разработка\Project\Lab3\obj\Debug\Lab3.Forms.ConnectMsgBox.resources
+D:\Семестр 8\Командная разработка\Project\Lab3\obj\Debug\Lab3.Forms.MoveForm.resources

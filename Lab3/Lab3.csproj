@@ -144,6 +144,8 @@
     </Compile>
     <Compile Include="GlobalVars.cs" />
     <Compile Include="MySQLConnector.cs" />
+    <Compile Include="Objects\Eat.cs" />
+    <Compile Include="Objects\EatShedule.cs" />
     <Compile Include="Objects\Immunization.cs" />
     <Compile Include="Objects\Parent.cs" />
     <Compile Include="Objects\SheduleVisit.cs" />
